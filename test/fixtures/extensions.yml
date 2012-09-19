@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  context: MyString
+  exten: MyString
+  priority: 1
+  app: MyString
+  appdata: MyString
+
+two:
+  context: MyString
+  exten: MyString
+  priority: 1
+  app: MyString
+  appdata: MyString

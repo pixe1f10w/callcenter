@@ -1,0 +1,67 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  musiconhold: MyString
+  announce: MyString
+  timeout: 1
+  monitor_join: false
+  monitor_format: MyString
+  queue_youarenext: MyString
+  queue_thereare: MyString
+  queue_callswaiting: MyString
+  queue_holdtime: MyString
+  queue_minutes: MyString
+  queue_seconds: MyString
+  queue_lessthan: MyString
+  queue_thankyou: MyString
+  queue_reporthold: MyString
+  announce_frequency: 1
+  announce_round_seconds: 1
+  announce_holdtime: MyString
+  retry: 1
+  wrapuptime: 1
+  maxlen: 1
+  servicelevel: 1
+  strategy: MyString
+  joinempty: MyString
+  leavewhenempty: MyString
+  eventmemberstatus: false
+  eventwhencalled: false
+  reportholdtime: false
+  memberdelay: 1
+  weight: 1
+  timeoutrestart: false
+
+two:
+  name: MyString
+  musiconhold: MyString
+  announce: MyString
+  timeout: 1
+  monitor_join: false
+  monitor_format: MyString
+  queue_youarenext: MyString
+  queue_thereare: MyString
+  queue_callswaiting: MyString
+  queue_holdtime: MyString
+  queue_minutes: MyString
+  queue_seconds: MyString
+  queue_lessthan: MyString
+  queue_thankyou: MyString
+  queue_reporthold: MyString
+  announce_frequency: 1
+  announce_round_seconds: 1
+  announce_holdtime: MyString
+  retry: 1
+  wrapuptime: 1
+  maxlen: 1
+  servicelevel: 1
+  strategy: MyString
+  joinempty: MyString
+  leavewhenempty: MyString
+  eventmemberstatus: false
+  eventwhencalled: false
+  reportholdtime: false
+  memberdelay: 1
+  weight: 1
+  timeoutrestart: false

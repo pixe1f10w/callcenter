@@ -30,12 +30,15 @@ class CreateDevices < ActiveRecord::Migration
       t.string :rtpholdtimeout, limit: 3
       t.string :secret, limit: 80
       t.string :type, limit: 6, default: 'friend'
-      t.string :username, limit: 80
+      t.string :defaultuser, limit: 80
+      t.string :regserver, limit: 20
+      t.string :useragent, limit: 20
       t.string :disallow, limit: 100
       t.string :allow, limit: 100
       t.string :musiconhold, limit: 100
       t.integer :regseconds, limit: 11, default: 0
-      t.string :ipaddr, limit: 15, default: '0'
+      t.integer :lastms, limit: 11, default: 0
+      t.string :ipaddr, limit: 45, default: '0'
       t.string :regexten, limit: 80
       t.string :cancallforward, limit: 3, default: 'yes'
       t.string :setvar, limit: 100

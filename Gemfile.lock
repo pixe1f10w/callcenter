@@ -56,6 +56,7 @@ GEM
       girl_friday
       niceogiri (~> 1.0)
       nokogiri (~> 1.5.5)
+    bootstrap-sass (2.1.0.0)
     builder (3.0.3)
     celluloid (0.11.1)
       timers (>= 1.0.0)
@@ -81,6 +82,12 @@ GEM
     future-resource (1.0.0)
     girl_friday (0.10.0)
       connection_pool (~> 0.9.0)
+    haml (3.1.7)
+    haml-rails (0.3.5)
+      actionpack (>= 3.1, < 4.1)
+      activesupport (>= 3.1, < 4.1)
+      haml (~> 3.1)
+      railties (>= 3.1, < 4.1)
     has-guarded-handlers (1.3.1)
     hike (1.2.1)
     i18n (0.6.1)
@@ -100,6 +107,7 @@ GEM
     method_source (0.8)
     mime-types (1.19)
     multi_json (1.3.6)
+    mysql (2.8.1)
     niceogiri (1.0.2)
       nokogiri (~> 1.4)
     nio4r (0.4.0)
@@ -185,8 +193,11 @@ PLATFORMS
 DEPENDENCIES
   adhearsion (~> 2.1.1)
   adhearsion-asterisk
+  bootstrap-sass
   coffee-rails (~> 3.2.1)
+  haml-rails
   jquery-rails
+  mysql
   punchblock (>= 1.4.1)
   rails (= 3.2.6)
   sass-rails (~> 3.2.3)

@@ -5,9 +5,15 @@ gem 'rails', '3.2.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# Adhearsion and it's dependencies
 gem "adhearsion", "~> 2.1.1"
 gem "adhearsion-asterisk"
 gem "punchblock", ">= 1.4.1"
+
+gem "haml-rails"
+gem "bootstrap-sass"
+
+gem 'mysql'
 
 gem 'sqlite3'
 

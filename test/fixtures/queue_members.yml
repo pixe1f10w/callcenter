@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  membername: MyString
+  queue_name: MyString
+  interface: MyString
+  penalty: 
+  paused: 
+
+two:
+  membername: MyString
+  queue_name: MyString
+  interface: MyString
+  penalty: 
+  paused: 

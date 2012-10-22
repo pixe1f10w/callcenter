@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -11,7 +11,9 @@ gem "adhearsion-asterisk"
 gem "punchblock", ">= 1.4.1"
 
 gem "haml-rails"
+gem "slim-rails"
 gem "bootstrap-sass"
+gem "inherited_resources"
 
 gem 'mysql'
 

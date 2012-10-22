@@ -1,0 +1,14 @@
+p#notice = notice
+
+.title
+  h2 = @device.name
+.mets
+  .type         = @device.type
+  .defaultuser  = @device.defaultuser
+  .host         = @device.host
+  .context      = @device.context
+.clear
+
+= link_to 'Edit', edit_device_path(@device)
+= link_to 'Destroy', @device, :confirm => 'Are you sure?', :method => :delete
+

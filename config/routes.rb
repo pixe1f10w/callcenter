@@ -1,5 +1,6 @@
 Callcenter::Application.routes.draw do
   resources :devices
+  resources :call_queues
 
   root to: 'devices#index'
   # The priority is based upon order of creation:

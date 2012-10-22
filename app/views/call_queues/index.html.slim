@@ -1,0 +1,7 @@
+h2 Listing call queues
+
+- @call_queues.each do |call_queue|
+  .project
+    h3 = link_to call_queue.name, call_queue
+
+= link_to 'Create', new_call_queue_path

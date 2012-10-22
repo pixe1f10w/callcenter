@@ -1,0 +1,24 @@
+= form_for @call_queue do |f|
+  - if @call_queue.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@call_queue.errors.count, "error")} prohibited this call queue from being saved:"
+      ul
+        - @call_queue.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :musiconhold
+    = f.text_field :musiconhold
+  .field
+    = f.label :strategy
+    = f.text_field :strategy
+  .field
+    = f.label :timeout
+    = f.number_field :timeout
+  .field
+    = f.label :retry
+    = f.number_field :retry
+  .actions = f.submit 'Save'

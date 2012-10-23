@@ -10,7 +10,6 @@ gem "adhearsion", "~> 2.1.1"
 gem "adhearsion-asterisk"
 gem "punchblock", ">= 1.4.1"
 
-gem "haml-rails"
 gem "slim-rails"
 gem "bootstrap-sass"
 gem "inherited_resources"

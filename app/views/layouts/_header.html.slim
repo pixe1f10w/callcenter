@@ -1,0 +1,8 @@
+header.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      = link_to 'callcenter', root_path, id: 'logo'
+      nav
+        ul.nav.pull-right
+          li= link_to "devices", devices_path
+          li= link_to "call queues", call_queues_path

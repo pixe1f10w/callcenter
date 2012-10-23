@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120926101128) do
+ActiveRecord::Schema.define(:version => 20121023081657) do
 
   create_table "call_queues", :force => true do |t|
     t.string   "name",                   :limit => 128
@@ -110,13 +110,15 @@ ActiveRecord::Schema.define(:version => 20120926101128) do
   end
 
   create_table "queue_members", :primary_key => "uniqueid", :force => true do |t|
-    t.string   "membername", :limit => 40
-    t.string   "queue_name", :limit => 128
-    t.string   "interface",  :limit => 128
+    t.string   "membername",    :limit => 40
+    t.string   "queue_name",    :limit => 128
+    t.string   "interface",     :limit => 128
     t.integer  "penalty"
     t.integer  "paused"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "device_id"
+    t.integer  "call_queue_id"
   end
 
 end

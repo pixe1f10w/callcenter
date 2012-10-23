@@ -1,5 +1,4 @@
 class DevicesController < InheritedResources::Base
-
   def show
     @device = Device.find params[ :id ]
     show!

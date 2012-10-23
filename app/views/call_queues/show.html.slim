@@ -3,12 +3,14 @@ p#notice = notice
 .title
   h2 = @call_queue.name
 .mets
-  .musiconhold  = @call_queue.musiconhold
-  .strategy     = @call_queue.strategy
-  .timeout      = @call_queue.timeout
-  .retry        = @call_queue.retry
+  .musiconhold  = "Music on hold: #{@call_queue.musiconhold}"
+  .strategy     = "Strategy: #{@call_queue.strategy}"
+  .timeout      = "Timeout: #{@call_queue.timeout}"
+  .retry        = "Retry: #{@call_queue.retry}"
+  .members      = "Queue members: #{@devices.join( ', ' )}"
 .clear
 
 = link_to 'Edit', edit_call_queue_path(@call_queue)
+'|
 = link_to 'Destroy', @call_queue, :confirm => 'Are you sure?', :method => :delete
 

@@ -1,0 +1,15 @@
+= form_for [ @call_queue, @queue_member ] do |f|
+  - if @queue_member.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@queue_member.errors.count, "error")} prohibited this queue member from being saved:"
+      ul
+        - @queue_member.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :member_name
+    = f.text_field :membername
+  .field
+    = f.label :available_devices
+    = f.collection_select :device_id, Device.all, :id, :name
+  .actions = f.submit 'Save'

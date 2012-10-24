@@ -7,7 +7,9 @@ p#notice = notice
   .strategy     = "Strategy: #{@call_queue.strategy}"
   .timeout      = "Timeout: #{@call_queue.timeout}"
   .retry        = "Retry: #{@call_queue.retry}"
-  .members      = "Queue members: #{@devices.join( ', ' )}"
+  .members
+    = link_to "Queue members:",  call_queue_queue_members_path( @call_queue )
+    = " #{@devices.join( ', ' )}"
 .clear
 
 = link_to 'Edit', edit_call_queue_path(@call_queue)

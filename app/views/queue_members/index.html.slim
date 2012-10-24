@@ -1,0 +1,9 @@
+h2 Listing '#{@call_queue.name}' queue members
+
+- @queue_members.each do |member|
+  .member
+    /h3 = link_to member.device.name, member.device
+    h3 = link_to member.membername, [ @call_queue, member ]
+    = link_to 'remove', [ @call_queue, member ], :confirm => 'Are you sure?', :method => :delete
+
+= link_to 'Add', new_call_queue_queue_member_path

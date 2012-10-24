@@ -76,6 +76,7 @@ GEM
     connection_pool (0.9.2)
     countdownlatch (1.0.0)
     deep_merge (1.0.0)
+    easy_roles (1.2.0)
     erubis (2.7.0)
     eventmachine (1.0.0)
     execjs (1.4.0)
@@ -208,6 +209,7 @@ DEPENDENCIES
   annotate (~> 2.4.1.beta)
   bootstrap-sass
   coffee-rails (~> 3.2.1)
+  easy_roles
   inherited_resources
   jquery-rails
   mysql

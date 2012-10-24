@@ -11,5 +11,5 @@
     = f.text_field :membername
   .field
     = f.label :available_devices
-    = f.collection_select :device_id, Device.all, :id, :name
+    = f.collection_select :device_id, Device.all - @call_queue.devices, :id, :name
   .actions = f.submit 'Save'

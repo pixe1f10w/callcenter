@@ -7,6 +7,7 @@ class QueueMember < ActiveRecord::Base
   validates :membername, presence: true#, uniqueness: { case_sensitive: false }
   validates :device_id, presence: true
   validates :call_queue_id, presence: true
+  validates_uniqueness_of :device_id, scope: :call_queue_id
   #validates :interface, presence: true, uniqueness: { case_sensitive: false }
   #validates :queue_name, presence: true
 

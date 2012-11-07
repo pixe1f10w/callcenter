@@ -1,4 +1,6 @@
 # encoding: utf-8
+require File.expand_path('../adhearsion/routes', __FILE__)
+require File.expand_path('../adhearsion/events', __FILE__)
 
 Adhearsion.config do |config|
 
@@ -16,16 +18,9 @@ Adhearsion.config do |config|
   #        Adhearsion.config do |config|
   #          config.<plugin-name>.<key> = <value>
   #        end
-
   config.development do |dev|
     dev.platform.logging.level = :debug
   end
-
-  ##
-  # Use with Rayo (eg Voxeo PRISM)
-  #
-  #config.punchblock.username = "adhearsion" # Your XMPP JID for use with Rayo
-  #config.punchblock.password = "" # Your XMPP password
 
   ##
   # Use with Asterisk
@@ -34,38 +29,4 @@ Adhearsion.config do |config|
    config.punchblock.username = "adhearsion" # Your AMI username
    config.punchblock.password = "adhearsion" # Your AMI password
    config.punchblock.host = "127.0.0.1" # Your AMI host
-
-  ##
-  # Use with FreeSWITCH
-  #
-  # config.punchblock.platform = :freeswitch # Use FreeSWITCH
-  # config.punchblock.password = "" # Your Inbound EventSocket password
-  # config.punchblock.host = "127.0.0.1" # Your IES host
-end
-
-Adhearsion::Events.draw do
-
-  # Register global handlers for events
-  #
-  # eg. Handling Punchblock events
-  # punchblock do |event|
-  #   ...
-  # end
-  #
-  # eg Handling PeerStatus AMI events
-  # ami :name => 'PeerStatus' do |event|
-  #   ...
-  # end
-  #
-end
-
-Adhearsion.router do
-
-  #
-  # Specify your call routes, directing calls with particular attributes to a controller
-  #
-
-  route 'outbound call', Adhearsion::OutboundCall, Outbound
-
-  route 'default', CallCenter
 end

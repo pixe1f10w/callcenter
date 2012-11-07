@@ -3,7 +3,11 @@
 class CallCenter < Adhearsion::CallController
   def run
     answer
+    puts '************************************'
+    puts call.variables
+    call.instance_variables.each { |var| puts var }
+    puts '************************************'
     play 'tt-weasels'
-    queue( 'testing_queue' ).join!
+    queue( CallQueue.all.shuffle.first.name ).join!
   end
 end

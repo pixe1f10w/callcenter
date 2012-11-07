@@ -29,6 +29,7 @@ end
 
 group :development do
   gem 'annotate', '~> 2.4.1.beta'
+  gem 'nifty-generators'
   gem 'sqlite3'
 end
 
@@ -48,3 +49,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem "mocha", :group => :test

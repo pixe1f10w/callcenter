@@ -1,4 +1,6 @@
 Callcenter::Application.routes.draw do
+  resources :calls
+
   resources :devices
   resources :call_queues do
     resources :queue_members

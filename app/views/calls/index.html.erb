@@ -3,6 +3,7 @@
 <table class='span7 table table-striped table-centered' style='text-align: center'>
   <tr>
     <th>UniqueID</th>
+    <th>Created At</th>
     <th>Ended At</th>
     <th>Answered At</th>
     <th>Joined At</th>
@@ -14,6 +15,7 @@
   <% for call in @calls %>
     <tr>
       <td><%= call.uniqueid %></td>
+      <td><%= call.created_at %></td>
       <td><%= call.ended_at %></td>
       <td><%= call.answered_at %></td>
       <td><%= call.joined_at %></td>

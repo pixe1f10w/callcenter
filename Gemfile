@@ -30,6 +30,7 @@ end
 group :development do
   gem 'annotate', '~> 2.4.1.beta'
   gem 'nifty-generators'
+  gem 'rails_refactor'
   gem 'sqlite3'
 end
 

@@ -149,6 +149,7 @@ GEM
       activesupport (= 3.2.8)
       bundler (~> 1.0)
       railties (= 3.2.8)
+    rails_refactor (1.2)
     railties (3.2.8)
       actionpack (= 3.2.8)
       activesupport (= 3.2.8)
@@ -221,6 +222,7 @@ DEPENDENCIES
   nifty-generators
   punchblock (>= 1.4.1)
   rails (= 3.2.8)
+  rails_refactor
   sass-rails (~> 3.2.3)
   slim-rails
   sqlite3

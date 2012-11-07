@@ -1,0 +1,39 @@
+<h1>Call details</h1>
+
+<p>
+  <strong>UniqueID:</strong>
+  <%= @call.uniqueid %>
+</p>
+
+<p>
+  <strong>Ended At:</strong>
+  <%= @call.ended_at %>
+</p>
+<p>
+  <strong>Answered At:</strong>
+  <%= @call.answered_at %>
+</p>
+<p>
+  <strong>Joined At:</strong>
+  <%= @call.joined_at %>
+</p>
+<p>
+  <strong>From:</strong>
+  <%= @call.from %>
+</p>
+<p>
+  <strong>To:</strong>
+  <%= @call.to %>
+</p>
+<p>
+  <strong>Duration:</strong>
+  <%= @call.duration %>
+</p>
+<p>
+  <strong>Inbound:</strong>
+  <%= @call.inbound %>
+</p>
+
+<p>
+  <%= link_to "View All", calls_path %>
+</p>

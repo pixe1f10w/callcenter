@@ -1,0 +1,17 @@
+one:
+  ended_at: 2012-11-07 13:00:09
+  answered_at: 2012-11-07 13:00:09
+  joined_at: 2012-11-07 13:00:09
+  from: MyString
+  to: MyString
+  duration: 2012-11-07 13:00:09
+  inbound: false
+
+two:
+  ended_at: 2012-11-07 13:00:09
+  answered_at: 2012-11-07 13:00:09
+  joined_at: 2012-11-07 13:00:09
+  from: MyString
+  to: MyString
+  duration: 2012-11-07 13:00:09
+  inbound: false

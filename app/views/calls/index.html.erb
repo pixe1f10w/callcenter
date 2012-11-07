@@ -1,0 +1,28 @@
+<h2>Listing calls</h2>
+
+<table class='span7 table table-striped table-centered' style='text-align: center'>
+  <tr>
+    <th>UniqueID</th>
+    <th>Ended At</th>
+    <th>Answered At</th>
+    <th>Joined At</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Duration</th>
+    <th>Inbound</th>
+  </tr>
+  <% for call in @calls %>
+    <tr>
+      <td><%= call.uniqueid %></td>
+      <td><%= call.ended_at %></td>
+      <td><%= call.answered_at %></td>
+      <td><%= call.joined_at %></td>
+      <td><%= call.from %></td>
+      <td><%= call.to %></td>
+      <td><%= call.duration %></td>
+      <td><%= call.inbound %></td>
+      <td><%= link_to "Show", call %></td>
+    </tr>
+  <% end %>
+</table>
+

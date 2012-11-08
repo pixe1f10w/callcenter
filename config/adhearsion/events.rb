@@ -7,37 +7,52 @@ Adhearsion::Events.draw do
   # eg. Handling Punchblock events
   #punchblock do |event|
   punchblock  Punchblock::Event::Answered do |event|
-  #  puts 'answered'
     puts "answered #{event.target_call_id}"
-  #  puts '+++++++++++++++++++++++++++++++++++++++++++++++++++++++'
-  #  puts event
+    begin
+      call = Call.find event.target_call_id
+      call.answered_at = DateTime.current
+      call.save
+    rescue ActiveRecord::RecordNotFound => e
+      puts e
+    end
   end
 
   punchblock  Punchblock::Event::Offer do |event|
     puts "offered #{event.target_call_id}"
-  #  puts 'create'
-  #  puts '+++++++++++++++++++++++++++++++++++++++++++++++++++++++'
-  #  puts event
+    Call.create uniqueid: event.target_call_id, from: event.from, to: event.to
   end
 
   punchblock  Punchblock::Event::End do |event|
     puts "ended #{event.target_call_id}"
-    #puts 'ended'
-  #  puts '+++++++++++++++++++++++++++++++++++++++++++++++++++++++'
-  #  puts event
+    begin
+      call = Call.find event.target_call_id
+      call.ended_at = DateTime.current
+      call.save
+    rescue ActiveRecord::RecordNotFound => e
+      puts e
+    end
   end
 
   punchblock  Punchblock::Event::Joined do |event|
     puts "joined #{event.target_call_id}"
-    #puts 'joined'
-  #  puts '+++++++++++++++++++++++++++++++++++++++++++++++++++++++'
-  #  puts event
+    begin
+      call = Call.find event.target_call_id
+      call.joined_at = DateTime.current
+      call.save
+    rescue ActiveRecord::RecordNotFound => e
+      puts e
+    end
   end
 
   punchblock  Punchblock::Event::Unjoined do |event|
     puts 'unjoined'
-  #  puts '+++++++++++++++++++++++++++++++++++++++++++++++++++++++'
-  #  puts event
+    begin
+      call = Call.find event.target_call_id
+      call.unjoined_at = DateTime.current
+      call.save
+    rescue ActiveRecord::RecordNotFound => e
+      puts e
+    end
   end
 =begin
   ami name: 'Newexten' do|e|

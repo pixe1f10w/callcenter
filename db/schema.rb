@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121107070015) do
+ActiveRecord::Schema.define(:version => 20121023081657) do
 
   create_table "call_queues", :force => true do |t|
     t.string   "name",                   :limit => 128
@@ -47,18 +47,6 @@ ActiveRecord::Schema.define(:version => 20121107070015) do
     t.boolean  "timeoutrestart"
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
-  end
-
-  create_table "calls", :primary_key => "uniqueid", :force => true do |t|
-    t.string   "from"
-    t.string   "to"
-    t.time     "duration"
-    t.boolean  "inbound"
-    t.datetime "joined_at"
-    t.datetime "answered_at"
-    t.datetime "ended_at"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
   end
 
   create_table "devices", :force => true do |t|

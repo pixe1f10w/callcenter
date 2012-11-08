@@ -4,7 +4,8 @@ class OutboundCalls < Adhearsion::CallController
   def run
     #puts ' OMGWTF its outta here!11'
     #answer
-    dial 'SIP/1015'
+    puts call.variables
+    dial 'SIP/10.0.3.8/89630021387', from: '600986'
     #sleep 5
     #answer
     #sleep 5

@@ -18,10 +18,11 @@ Adhearsion.config do |config|
   #        Adhearsion.config do |config|
   #          config.<plugin-name>.<key> = <value>
   #        end
+=begin
   config.development do |dev|
     dev.platform.logging.level = :debug
   end
-
+=end
   ##
   # Use with Asterisk
   #

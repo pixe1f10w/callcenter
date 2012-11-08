@@ -7,9 +7,10 @@ Adhearsion.router do
   #
 
   #route 'outbound call', Adhearsion::OutboundCall, Outbound
+  route 'foo', CallCenter, to: /789/
   #route 'bar', OutboundCalls, Adhearsion::OutboundCall, from: /1337/
   route 'baz', OutboundCalls
-  route 'foo', CallCenter, to: /789/
+
 
   #route 'default', CallCenter
 end

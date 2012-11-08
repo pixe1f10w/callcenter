@@ -1,7 +1,7 @@
 class CreateCalls < ActiveRecord::Migration
   def self.up
     create_table :calls, force: true, id: false do |t|
-      t.column :uniqueid, 'varchar(20) primary key not null'
+      t.column :uniqueid, 'varchar(36) primary key not null'
       t.string :from
       t.string :to
       t.time :duration

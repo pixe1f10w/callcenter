@@ -11,6 +11,7 @@
     <th>From</th>
     <th>To</th>
     <th>Inbound</th>
+    <th>Duration</th>
   </tr>
   <% for call in @calls %>
     <tr>
@@ -23,6 +24,7 @@
       <td><%= call.from %></td>
       <td><%= call.to %></td>
       <td><%= call.inbound %></td>
+      <td><%= Time.diff( call.ended_at, call.answered_at )[ :diff ] if !call.ended_at.nil? && !call.answered_at.nil? %></td>
       <td><%= link_to "Show", call %></td>
     </tr>
   <% end %>

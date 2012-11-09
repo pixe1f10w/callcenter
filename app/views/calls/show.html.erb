@@ -40,6 +40,10 @@
   <strong>Inbound:</strong>
   <%= @call.inbound %>
 </p>
+<p>
+  <strong>Duration:</strong>
+  <%= Time.diff( @call.ended_at, @call.answered_at, '%H %N %S' )[ :diff ] if !@call.ended_at.nil? && !@call.answered_at.nil? %>
+</p>
 
 <p>
   <%= link_to "View All", calls_path %>

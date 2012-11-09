@@ -14,6 +14,7 @@ gem "inherited_resources"
 gem 'mysql'
 
 gem 'easy_roles'
+gem 'time_diff'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,5 +1,5 @@
 class Call < ActiveRecord::Base
-  attr_accessible :uniqueid, :created_at, :ended_at, :answered_at, :joined_at, :unjoined_at, :from, :to, :duration, :inbound
+  attr_accessible :uniqueid, :created_at, :ended_at, :answered_at, :joined_at, :unjoined_at, :from, :to, :inbound
   set_primary_key :uniqueid
   before_create :update_source
   #before_save :calculate_duration
@@ -11,17 +11,18 @@ class Call < ActiveRecord::Base
 
   private
     def update_source
-      #unless self.from.nil?
         id = self.from.match( SOURCE_REGEX )[ 'id' ]
-        self.from = id
-      #end
+        self.from = id unless id.nil?
     end
-
+=begin
     def calculate_duration
-      if not ( self.answered_at.nil? && self.ended_at.nil? )
+      #if not ( self.answered_at.nil? && self.ended_at.nil? )
+      begin
         self.duration = self.ended_at - self.answered_at
+      rescue
       end
     end
+=end
 end
 # == Schema Information
 #

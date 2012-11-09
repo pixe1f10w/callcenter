@@ -10,7 +10,6 @@
     <th>Unjoined At</th>
     <th>From</th>
     <th>To</th>
-    <th>Duration</th>
     <th>Inbound</th>
   </tr>
   <% for call in @calls %>
@@ -23,7 +22,6 @@
       <td><%= call.unjoined_at %></td>
       <td><%= call.from %></td>
       <td><%= call.to %></td>
-      <td><%= call.duration %></td>
       <td><%= call.inbound %></td>
       <td><%= link_to "Show", call %></td>
     </tr>

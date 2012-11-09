@@ -4,7 +4,7 @@ class CreateCalls < ActiveRecord::Migration
       t.column :uniqueid, 'varchar(36) primary key not null'
       t.string :from
       t.string :to
-      t.time :duration
+      #t.time :duration
       t.boolean :inbound
       t.datetime :joined_at
       t.datetime :unjoined_at

@@ -6,6 +6,7 @@ class OutboundCalls < Adhearsion::CallController
     #answer
     puts call.variables
     dial 'SIP/10.0.3.8/89630021387', from: '600986'
+    hangup
     #sleep 5
     #answer
     #sleep 5

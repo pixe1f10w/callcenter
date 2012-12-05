@@ -6,7 +6,8 @@
 #
 
 development:
-    adapter: mysql2
+    adapter: jdbcmysql
+    #adapter: mysql2
     encoding: utf8
     database: callcenter
     username: callcenter

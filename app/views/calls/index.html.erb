@@ -1,5 +1,7 @@
 <h2>Listing calls</h2>
 
+<%= will_paginate %>
+
 <table class='span7 table table-striped table-centered' style='text-align: center'>
   <tr>
     <th>UniqueID</th>
@@ -13,6 +15,7 @@
     <th>Inbound</th>
     <th>Duration</th>
   </tr>
+
   <% for call in @calls %>
     <tr>
       <td><%= call.uniqueid %></td>
@@ -25,8 +28,9 @@
       <td><%= call.to %></td>
       <td><%= call.inbound %></td>
       <td><%= Time.diff( call.ended_at, call.answered_at )[ :diff ] if !call.ended_at.nil? && !call.answered_at.nil? %></td>
-      <td><%= link_to "Show", call %></td>
+      <td><%= link_to "Details", call %></td>
     </tr>
   <% end %>
 </table>
 
+<%= will_paginate %>

@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.9'
 
 # Adhearsion and it's dependencies
-gem "adhearsion", "~> 2.1.1"
+gem "adhearsion", "~> 2.1.3"
 gem "adhearsion-asterisk"
 gem "punchblock", ">= 1.4.1"
 
@@ -11,7 +11,19 @@ gem "slim-rails"
 gem "bootstrap-sass"
 gem "inherited_resources"
 
-gem 'mysql'
+gem "will_paginate", "3.0.3"
+gem "bootstrap-will_paginate"
+
+#gem "activerecord-wrap-with-connection"
+
+platforms :ruby do
+  gem 'mysql2'
+end
+
+platforms :jruby do
+  gem 'activerecord-jdbcmysql-adapter'
+  gem 'ffi'
+end
 
 gem 'easy_roles'
 gem 'time_diff'
@@ -31,8 +43,7 @@ end
 group :development do
   gem 'annotate', '~> 2.4.1.beta'
   gem 'nifty-generators'
-  gem 'rails_refactor'
-  gem 'sqlite3'
+  gem 'rails_refactor', :require => false
 end
 
 gem 'jquery-rails'
@@ -52,4 +63,4 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
-gem "mocha", :group => :test
+#gem "mocha", :group => :test, :require => false

@@ -29,5 +29,6 @@ Adhearsion.config do |config|
    config.punchblock.platform = :asterisk # Use Asterisk
    config.punchblock.username = "adhearsion" # Your AMI username
    config.punchblock.password = "adhearsion" # Your AMI password
-   config.punchblock.host = "127.0.0.1" # Your AMI host
+   #config.punchblock.host = "127.0.0.1" # Your AMI host
+   config.punchblock.host = "voip.support.core" # Your AMI host
 end

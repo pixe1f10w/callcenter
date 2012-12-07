@@ -5,6 +5,10 @@ class Extension < ActiveRecord::Base
   validates :priority, presence: true
   validates :app, presence: true
   validates :appdata, presence: true
+
+  def to_i
+    @id
+  end
 end
 
 # == Schema Information

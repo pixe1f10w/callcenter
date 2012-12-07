@@ -1,24 +1,28 @@
 class QueueMember < ActiveRecord::Base
   before_create :set_queue_name, :set_interface
 
-  attr_accessible :interface, :membername, :paused, :penalty, :queue_name, :device_id, :call_queue_id
+  attr_accessible :interface, :membername, :paused, :penalty, :queue_name, :device_id, :group_id
   set_primary_key :uniqueid
 
   validates :membername, presence: true#, uniqueness: { case_sensitive: false }
   validates :device_id, presence: true
-  validates :call_queue_id, presence: true
-  validates_uniqueness_of :device_id, scope: :call_queue_id
+  validates :group_id, presence: true
+  validates_uniqueness_of :device_id, scope: :group_id
   #validates :interface, presence: true, uniqueness: { case_sensitive: false }
   #validates :queue_name, presence: true
 
-  belongs_to :call_queue
+  belongs_to :group
   belongs_to :device
+
+  def to_i
+    @id
+  end
 
   private
     def set_queue_name
-      call_queue = CallQueue.find self.call_queue_id
-      call_queue_name = call_queue.nil? ? 0 : call_queue.name
-      self.queue_name = call_queue_name
+      group = Group.find self.group_id
+      group_name = group.nil? ? 0 : group.name
+      self.queue_name = group_name
     end
 
     def set_interface
@@ -41,6 +45,6 @@ end
 #  created_at    :datetime        not null
 #  updated_at    :datetime        not null
 #  device_id     :integer(4)
-#  call_queue_id :integer(4)
+#  group_id :integer(4)
 #
 

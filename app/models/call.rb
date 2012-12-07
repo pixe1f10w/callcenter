@@ -9,6 +9,10 @@ class Call < ActiveRecord::Base
   VALID_UNIQUEID_REGEX = /^\w{8}-\w{4}-\w{4}-\w{4}-\w{12}$/
   validates :uniqueid, presence: true, format: { with: VALID_UNIQUEID_REGEX }
 
+  def to_i
+    @uniqueid
+  end
+
   private
     def update_source
         id = self.from.match( SOURCE_REGEX )[ 'id' ]

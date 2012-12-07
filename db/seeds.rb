@@ -8,6 +8,7 @@
 devices = Device.create [ { name: '1015', type: 'friend', defaultuser: '1015', secret: '12345', host: 'dynamic', context: 'testing' },
                           { name: '1020', type: 'friend', defaultuser: '1020', secret: '12345', host: 'dynamic', context: 'testing' } ]
 
-queue = CallQueue.create name: 'testing', musiconhold: 'default', strategy: 'random', timeout: 15, retry: 5
+group = Group.create name: 'testing', musiconhold: 'default', strategy: 'random', timeout: 15, retry: 5
 
-member = QueueMember.create membername: 'John Doe', device_id: devices.first, call_queue_id: queue
+#member = QueueMember.create membername: 'John Doe', device_id: devices.first.id, line_id: line.id
+member = QueueMember.create membername: 'John Doe', device_id: devices.first, group_id: group

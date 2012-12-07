@@ -13,43 +13,8 @@
 
 ActiveRecord::Schema.define(:version => 20121107070015) do
 
-  create_table "call_queues", :force => true do |t|
-    t.string   "name",                   :limit => 128
-    t.string   "musiconhold",            :limit => 128
-    t.string   "announce",               :limit => 128
-    t.integer  "timeout"
-    t.boolean  "monitor_join"
-    t.string   "monitor_format",         :limit => 128
-    t.string   "queue_youarenext",       :limit => 128
-    t.string   "queue_thereare",         :limit => 128
-    t.string   "queue_callswaiting",     :limit => 128
-    t.string   "queue_holdtime",         :limit => 128
-    t.string   "queue_minutes",          :limit => 128
-    t.string   "queue_seconds",          :limit => 128
-    t.string   "queue_lessthan",         :limit => 128
-    t.string   "queue_thankyou",         :limit => 128
-    t.string   "queue_reporthold",       :limit => 128
-    t.integer  "announce_frequency"
-    t.integer  "announce_round_seconds"
-    t.string   "announce_holdtime",      :limit => 128
-    t.integer  "retry"
-    t.integer  "wrapuptime"
-    t.integer  "maxlen"
-    t.integer  "servicelevel"
-    t.string   "strategy",               :limit => 128
-    t.string   "joinempty",              :limit => 128
-    t.string   "leavewhenempty",         :limit => 128
-    t.boolean  "eventmemberstatus"
-    t.boolean  "eventwhencalled"
-    t.boolean  "reportholdtime"
-    t.integer  "memberdelay"
-    t.integer  "weight"
-    t.boolean  "timeoutrestart"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
-  end
-
-  create_table "calls", :primary_key => "uniqueid", :force => true do |t|
+  create_table "calls", :id => false, :force => true do |t|
+    t.string   "uniqueid",    :limit => 36, :null => false
     t.string   "from"
     t.string   "to"
     t.boolean  "inbound"
@@ -57,8 +22,8 @@ ActiveRecord::Schema.define(:version => 20121107070015) do
     t.datetime "unjoined_at"
     t.datetime "answered_at"
     t.datetime "ended_at"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "devices", :force => true do |t|
@@ -121,16 +86,52 @@ ActiveRecord::Schema.define(:version => 20121107070015) do
     t.datetime "updated_at",                               :null => false
   end
 
+  create_table "groups", :force => true do |t|
+    t.string   "name",                   :limit => 128
+    t.string   "musiconhold",            :limit => 128
+    t.string   "announce",               :limit => 128
+    t.integer  "timeout"
+    t.boolean  "monitor_join"
+    t.string   "monitor_format",         :limit => 128
+    t.string   "queue_youarenext",       :limit => 128
+    t.string   "queue_thereare",         :limit => 128
+    t.string   "queue_callswaiting",     :limit => 128
+    t.string   "queue_holdtime",         :limit => 128
+    t.string   "queue_minutes",          :limit => 128
+    t.string   "queue_seconds",          :limit => 128
+    t.string   "queue_lessthan",         :limit => 128
+    t.string   "queue_thankyou",         :limit => 128
+    t.string   "queue_reporthold",       :limit => 128
+    t.integer  "announce_frequency"
+    t.integer  "announce_round_seconds"
+    t.string   "announce_holdtime",      :limit => 128
+    t.integer  "retry"
+    t.integer  "wrapuptime"
+    t.integer  "maxlen"
+    t.integer  "servicelevel"
+    t.string   "strategy",               :limit => 128
+    t.string   "joinempty",              :limit => 128
+    t.string   "leavewhenempty",         :limit => 128
+    t.boolean  "eventmemberstatus"
+    t.boolean  "eventwhencalled"
+    t.boolean  "reportholdtime"
+    t.integer  "memberdelay"
+    t.integer  "weight"
+    t.boolean  "timeoutrestart"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+  end
+
   create_table "queue_members", :primary_key => "uniqueid", :force => true do |t|
-    t.string   "membername",    :limit => 40
-    t.string   "queue_name",    :limit => 128
-    t.string   "interface",     :limit => 128
+    t.string   "membername", :limit => 40
+    t.string   "queue_name", :limit => 128
+    t.string   "interface",  :limit => 128
     t.integer  "penalty"
     t.integer  "paused"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "device_id"
-    t.integer  "call_queue_id"
+    t.integer  "group_id"
   end
 
 end

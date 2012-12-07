@@ -18,10 +18,12 @@ gem "bootstrap-will_paginate"
 
 platforms :ruby do
   gem 'mysql2'
+  gem 'pg'
 end
 
 platforms :jruby do
   gem 'activerecord-jdbcmysql-adapter'
+  gem 'activerecord-jdbcpostgresql-adapter'
   gem 'ffi'
 end
 

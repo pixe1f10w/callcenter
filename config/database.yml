@@ -6,12 +6,15 @@
 #
 
 development:
-    adapter: mysql2
+    #adapter: mysql2
+    adapter: postgresql
     encoding: utf8
     database: callcenter
-    username: callcenter
-    password: p4sSw0Rd
-    host: localhost
+    #username: callcenter
+    username: postgres
+    #password: p4sSw0Rd
+    #host: localhost
+    host: voip.support.core
     pool: 50
     timeout: 5000
 

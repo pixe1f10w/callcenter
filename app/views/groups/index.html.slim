@@ -1,0 +1,7 @@
+h2 Listing groups
+
+- @groups.each do |group|
+  .project
+    h3 = link_to group.name, group
+
+= link_to 'Create', new_group_path

@@ -1,0 +1,18 @@
+p#notice = notice
+
+.title
+  h2 = @group.name
+.mets
+  .musiconhold  = "Music on hold: #{@group.musiconhold}"
+  .strategy     = "Strategy: #{@group.strategy}"
+  .timeout      = "Timeout: #{@group.timeout}"
+  .retry        = "Retry: #{@group.retry}"
+  .members
+    = link_to "Queue members:",  group_queue_members_path( @group )
+    = " #{@devices.join( ', ' )}"
+.clear
+
+= link_to 'Edit', edit_group_path(@group)
+'|
+= link_to 'Destroy', @group, :confirm => 'Are you sure?', :method => :delete
+

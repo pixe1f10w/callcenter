@@ -1,6 +1,6 @@
-class CreateCallQueues < ActiveRecord::Migration
+class CreateGroups < ActiveRecord::Migration
   def change
-    create_table :call_queues, force: true do |t|
+    create_table :groups, force: true do |t|
       t.string :name, limit: 128
       t.string :musiconhold, limit: 128
       t.string :announce, limit: 128

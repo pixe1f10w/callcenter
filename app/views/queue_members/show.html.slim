@@ -3,12 +3,12 @@
 .title
   h2 = @queue_member.membername
 .mets
-  .queue        = "Queue: #{@call_queue.name}"
+  .queue        = "Queue: #{@group.name}"
   .membername   = "Name: #{@queue_member.membername}"
   .device       = "Device: #{@queue_member.device.name}"
 .clear
 
-= link_to 'Edit', [ :edit, @call_queue, @queue_member ]
+= link_to 'Edit', [ :edit, @group, @queue_member ]
 '|
-= link_to 'Remove', [ @call_queue, @queue_member ], :confirm => 'Are you sure?', :method => :delete
+= link_to 'Remove', [ @group, @queue_member ], :confirm => 'Are you sure?', :method => :delete
 

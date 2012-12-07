@@ -1,4 +1,4 @@
-= form_for [ @call_queue, @queue_member ] do |f|
+= form_for [ @group, @queue_member ] do |f|
   - if @queue_member.errors.any?
     #error_explanation
       h2 = "#{pluralize(@queue_member.errors.count, "error")} prohibited this queue member from being saved:"
@@ -11,5 +11,5 @@
     = f.text_field :membername
   .field
     = f.label :available_devices
-    = f.collection_select :device_id, Device.all - @call_queue.devices, :id, :name
+    = f.collection_select :device_id, Device.all - @group.devices, :id, :name
   .actions = f.submit 'Save'

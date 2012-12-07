@@ -9,10 +9,10 @@ end
 #
 # Table name: extensions
 #
-#  id         :integer(4)      not null, primary key
+#  id         :integer         not null, primary key
 #  context    :string(20)      not null
 #  exten      :string(20)      not null
-#  priority   :integer(4)      default(0)
+#  priority   :integer         default(0)
 #  app        :string(20)      not null
 #  appdata    :string(128)     not null
 #  created_at :datetime        not null

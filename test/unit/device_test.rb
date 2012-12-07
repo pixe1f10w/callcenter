@@ -9,7 +9,7 @@ end
 #
 # Table name: devices
 #
-#  id             :integer(4)      not null, primary key
+#  id             :integer         not null, primary key
 #  name           :string(80)
 #  accountcode    :string(20)
 #  amaflags       :string(13)
@@ -45,8 +45,8 @@ end
 #  disallow       :string(100)
 #  allow          :string(100)
 #  musiconhold    :string(100)
-#  regseconds     :integer(4)      default(0)
-#  lastms         :integer(4)      default(0)
+#  regseconds     :integer         default(0)
+#  lastms         :integer         default(0)
 #  ipaddr         :string(45)      default("0")
 #  regexten       :string(80)
 #  cancallforward :string(3)       default("yes")

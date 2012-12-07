@@ -35,7 +35,7 @@ end
 #  uniqueid    :string(36)      not null, primary key
 #  from        :string(255)
 #  to          :string(255)
-#  inbound     :boolean(1)
+#  inbound     :boolean
 #  joined_at   :datetime
 #  unjoined_at :datetime
 #  answered_at :datetime

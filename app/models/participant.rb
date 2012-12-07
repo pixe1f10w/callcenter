@@ -34,17 +34,17 @@ end
 
 # == Schema Information
 #
-# Table name: queue_members
+# Table name: participants
 #
-#  uniqueid      :integer(4)      not null, primary key
-#  membername    :string(40)
-#  queue_name    :string(128)
-#  interface     :string(128)
-#  penalty       :integer(4)
-#  paused        :integer(4)
-#  created_at    :datetime        not null
-#  updated_at    :datetime        not null
-#  device_id     :integer(4)
-#  group_id :integer(4)
+#  uniqueid   :integer         not null, primary key
+#  membername :string(40)
+#  queue_name :string(128)
+#  interface  :string(128)
+#  penalty    :integer
+#  paused     :integer
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#  device_id  :integer
+#  group_id   :integer
 #
 

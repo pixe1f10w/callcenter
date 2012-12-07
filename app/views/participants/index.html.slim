@@ -1,9 +1,9 @@
 h2 Listing '#{@group.name}' queue members
 
-- @queue_members.each do |member|
+- @participants.each do |member|
   .member
     /h3 = link_to member.device.name, member.device
     h3 = link_to member.membername, [ @group, member ]
     = link_to 'remove', [ @group, member ], :confirm => 'Are you sure?', :method => :delete
 
-= link_to 'Add', new_group_queue_member_path
+= link_to 'Add', new_group_participant_path

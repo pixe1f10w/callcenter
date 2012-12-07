@@ -8,7 +8,7 @@ p#notice = notice
   .timeout      = "Timeout: #{@group.timeout}"
   .retry        = "Retry: #{@group.retry}"
   .members
-    = link_to "Queue members:",  group_queue_members_path( @group )
+    = link_to "Participants:",  group_participants_path( @group )
     = " #{@devices.join( ', ' )}"
 .clear
 

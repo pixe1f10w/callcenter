@@ -1,9 +1,9 @@
-= form_for [ @group, @queue_member ] do |f|
-  - if @queue_member.errors.any?
+= form_for [ @group, @participant ] do |f|
+  - if @participant.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@queue_member.errors.count, "error")} prohibited this queue member from being saved:"
+      h2 = "#{pluralize(@participant.errors.count, "error")} prohibited this queue member from being saved:"
       ul
-        - @queue_member.errors.full_messages.each do |message|
+        - @participant.errors.full_messages.each do |message|
           li = message
 
   .field

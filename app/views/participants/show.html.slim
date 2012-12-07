@@ -1,0 +1,14 @@
+/p#notice = notice
+
+.title
+  h2 = @participant.membername
+.mets
+  .queue        = "Queue: #{@group.name}"
+  .membername   = "Name: #{@participant.membername}"
+  .device       = "Device: #{@participant.device.name}"
+.clear
+
+= link_to 'Edit', [ :edit, @group, @participant ]
+'|
+= link_to 'Remove', [ @group, @participant ], :confirm => 'Are you sure?', :method => :delete
+

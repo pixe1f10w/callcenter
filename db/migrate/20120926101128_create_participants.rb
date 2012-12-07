@@ -1,6 +1,6 @@
-class CreateQueueMembers < ActiveRecord::Migration
+class CreateParticipants < ActiveRecord::Migration
   def change
-    create_table :queue_members, force: true, id: false do |t|
+    create_table :participants, force: true, id: false do |t|
       #t.integer :uniqueid, unsigned: true, limit: 10, options: 'primary key not null auto_increment'
       #t.column :uniqueid, 'int(10) unsigned primary key not null auto_increment'
       t.column :uniqueid, 'serial primary key not null'

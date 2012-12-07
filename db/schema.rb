@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(:version => 20121107070015) do
     t.datetime "updated_at",                            :null => false
   end
 
-  create_table "queue_members", :primary_key => "uniqueid", :force => true do |t|
+  create_table "participants", :primary_key => "uniqueid", :force => true do |t|
     t.string   "membername", :limit => 40
     t.string   "queue_name", :limit => 128
     t.string   "interface",  :limit => 128

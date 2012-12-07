@@ -1,4 +1,4 @@
-class QueueMember < ActiveRecord::Base
+class Participant < ActiveRecord::Base
   before_create :set_queue_name, :set_interface
 
   attr_accessible :interface, :membername, :paused, :penalty, :queue_name, :device_id, :group_id

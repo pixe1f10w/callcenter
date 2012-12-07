@@ -10,5 +10,5 @@ devices = Device.create [ { name: '1015', type: 'friend', defaultuser: '1015', s
 
 group = Group.create name: 'testing', musiconhold: 'default', strategy: 'random', timeout: 15, retry: 5
 
-#member = QueueMember.create membername: 'John Doe', device_id: devices.first.id, line_id: line.id
-member = QueueMember.create membername: 'John Doe', device_id: devices.first, group_id: group
+#member = Participant.create membername: 'John Doe', device_id: devices.first.id, line_id: line.id
+participant = Participant.create membername: 'John Doe', device_id: devices.first, group_id: group

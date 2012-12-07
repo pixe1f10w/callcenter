@@ -3,7 +3,7 @@ Callcenter::Application.routes.draw do
   #resources :calls, constraints: { id: /\d{10}\.\d{3}/ }
   resources :devices
   resources :groups do
-    resources :queue_members
+    resources :participants
   end
 
   root to: 'devices#index'

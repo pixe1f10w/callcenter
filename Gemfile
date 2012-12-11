@@ -3,9 +3,14 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.9'
 
 # Adhearsion and it's dependencies
-gem "adhearsion", "~> 2.1.3"
+#gem "adhearsion", "~> 2.1.3"
+#gem "punchblock", ">= 1.4.1"
+
+gem 'adhearsion', git: 'https://github.com/adhearsion/adhearsion.git', branch: 'develop'
+gem 'punchblock', git: 'https://github.com/adhearsion/punchblock.git', branch: 'develop'
+gem 'celluloid', git: 'https://github.com/celluloid/celluloid.git', branch: 'master'
+
 gem "adhearsion-asterisk"
-gem "punchblock", ">= 1.4.1"
 
 gem "slim-rails"
 gem "bootstrap-sass"

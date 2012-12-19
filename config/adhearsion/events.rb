@@ -9,23 +9,13 @@ Adhearsion::Events.draw do
 
   punchblock  Punchblock::Event::Offer do |event|
     logger.info "offered #{event.target_call_id}"
-    Call.create uniqueid: event.target_call_id, from: event.from, to: event.to
+    Call.create uniqueid: event.target_call_id.to_s, from: event.from, to: event.to
   end
 
   punchblock  Punchblock::Event::Answered do |event|
-=begin
     logger.info "answered #{event.target_call_id}"
-    begin
-      call = Call.find event.target_call_id
-      call.answered_at = DateTime.current
-      call.save
-    rescue ActiveRecord::RecordNotFound => e
-      logger.info e
-    end
-=end
-    logger.info "answered #{event.target_call_id}"
-    if Call.exists? event.target_call_id
-      call = Call.find event.target_call_id
+    unless Call.where( Call.primary_key_hash( event.target_call_id.to_s ) ).empty?
+      call = Call.find! event.target_call_id.to_s
       call.answered_at = DateTime.current
       call.save
     end
@@ -34,41 +24,29 @@ Adhearsion::Events.draw do
   punchblock  Punchblock::Event::End do |event|
     logger.info "ended #{event.target_call_id}"
     logger.info Adhearsion::active_calls[ event.target_call_id ].tags
-    #begin
-    if Call.exists? event.target_call_id
-      call = Call.find event.target_call_id
+    unless Call.where( Call.primary_key_hash( event.target_call_id.to_s ) ).empty?
+      call = Call.find! event.target_call_id.to_s
       call.ended_at = DateTime.current
       call.save
     end
-    #rescue ActiveRecord::RecordNotFound => e
-    #  logger.info e
-    #end
   end
 
   punchblock  Punchblock::Event::Joined do |event|
     logger.info "joined #{event.target_call_id}"
-    #begin
-    if Call.exists? event.target_call_id
-      call = Call.find event.target_call_id
+    unless Call.where( Call.primary_key_hash( event.target_call_id.to_s ) ).empty?
+      call = Call.find! event.target_call_id.to_s
       call.joined_at = DateTime.current
       call.save
     end
-    #rescue ActiveRecord::RecordNotFound => e
-    #  logger.info e
-    #end
   end
 
   punchblock  Punchblock::Event::Unjoined do |event|
-    logger.info 'unjoined'
-    #begin
-    if Call.exists? event.target_call_id
-      call = Call.find event.target_call_id
+    logger.info "unjoined #{event.target_call_id}"
+    unless Call.where( Call.primary_key_hash( event.target_call_id.to_s ) ).empty?
+      call = Call.find! event.target_call_id.to_s
       call.unjoined_at = DateTime.current
       call.save
     end
-    #rescue ActiveRecord::RecordNotFound => e
-    #  logger.info e
-    #end
   end
 =begin
   ami name: 'Newexten' do|e|

@@ -6,9 +6,11 @@ gem 'rails', '3.2.9'
 #gem "adhearsion", "~> 2.1.3"
 #gem "punchblock", ">= 1.4.1"
 
-gem 'adhearsion', git: 'https://github.com/adhearsion/adhearsion.git', branch: 'develop'
-gem 'punchblock', git: 'https://github.com/adhearsion/punchblock.git', branch: 'develop'
-gem 'celluloid', git: 'https://github.com/celluloid/celluloid.git', branch: 'master'
+#gem 'adhearsion', git: 'https://github.com/adhearsion/adhearsion.git', branch: 'develop'
+#gem 'punchblock', git: 'https://github.com/adhearsion/punchblock.git', branch: 'develop'
+#gem 'celluloid', git: 'https://github.com/celluloid/celluloid.git', branch: 'master'
+
+gem "adhearsion", ">= 2.2.0"
 
 gem "adhearsion-asterisk"
 
@@ -19,21 +21,26 @@ gem "inherited_resources"
 gem "will_paginate", "3.0.3"
 gem "bootstrap-will_paginate"
 
+#gem 'easy_roles'
+gem 'time_diff'
+
 #gem "activerecord-wrap-with-connection"
+
+gem 'sequel'
+gem 'talentbox-sequel-rails'
 
 platforms :ruby do
   gem 'mysql2'
   gem 'pg'
+  #gem 'therubyracer'
 end
 
 platforms :jruby do
   gem 'activerecord-jdbcmysql-adapter'
   gem 'activerecord-jdbcpostgresql-adapter'
   gem 'ffi'
+  #gem 'therubyrhino'
 end
-
-gem 'easy_roles'
-gem 'time_diff'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,20 +1,26 @@
-class CreateCalls < ActiveRecord::Migration
-  def self.up
-    create_table :calls, force: true, id: false do |t|
-      t.column :uniqueid, 'varchar(36) primary key not null'
-      t.string :from
-      t.string :to
-      #t.time :duration
-      t.boolean :inbound
-      t.datetime :joined_at
-      t.datetime :unjoined_at
-      t.datetime :answered_at
-      t.datetime :ended_at
-      t.timestamps
+Sequel.migration do
+  up do
+
+    create_table :calls do
+      #t.column :uniqueid, 'varchar(36) primary key not null'
+      String :uniqueid, primary_key: true, null: false
+
+      String :from
+      String :to
+      Boolean :inbound
+      DateTime :created_at
+      DateTime :updated_at
+      DateTime :joined_at
+      DateTime :unjoined_at
+      DateTime :answered_at
+      DateTime :ended_at
     end
+
   end
 
-  def self.down
+  down do
+
     drop_table :calls
+
   end
 end

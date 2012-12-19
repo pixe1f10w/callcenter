@@ -11,5 +11,8 @@
     = f.text_field :membername
   .field
     = f.label :available_devices
-    = f.collection_select :device_id, Device.all - @group.devices, :id, :name
+    - devices = Device.all - @group.devices
+    - devices << @participant.device unless @participant.device.nil?
+    //= f.collection_select :device_id, Device.all - @group.devices << @participant.device, :id, :name
+    = f.collection_select :device_id, devices, :id, :name
   .actions = f.submit 'Save'

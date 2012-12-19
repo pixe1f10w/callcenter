@@ -9,7 +9,7 @@ p#notice = notice
   .retry        = "Retry: #{@group.retry}"
   .members
     = link_to "Participants:",  group_participants_path( @group )
-    = " #{@devices.join( ', ' )}"
+    = " #{@attached_devices.join( ', ' )}"
 .clear
 
 = link_to 'Edit', edit_group_path(@group)

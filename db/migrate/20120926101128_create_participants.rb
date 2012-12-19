@@ -1,18 +1,25 @@
-class CreateParticipants < ActiveRecord::Migration
-  def change
-    create_table :participants, force: true, id: false do |t|
-      #t.integer :uniqueid, unsigned: true, limit: 10, options: 'primary key not null auto_increment'
-      t.column :uniqueid, 'int(10) unsigned primary key not null auto_increment'
-      #t.column :uniqueid, 'serial primary key not null'
-      t.string :membername, limit: 40
-      t.string :queue_name, limit: 128
-      t.string :interface, limit: 128
-      t.integer :penalty, limit: 11
-      t.integer :paused, limit: 11
+Sequel.migration do
+  change do
 
-      t.timestamps
+    create_table :participants do#, force: true, id: false do |t|
+      #Integer :uniqueid, unsigned: true, limit: 10, options: 'primary key not null auto_increment'
+      #t.column :uniqueid, 'int(10) unsigned primary key not null auto_increment'
+      primary_key :uniqueid, limit: 10
+      foreign_key :device_id, :devices
+      foreign_key :group_id, :groups
+
+      #t.column :uniqueid, 'serial primary key not null'
+      String :membername, limit: 40
+      String :queue_name, limit: 128
+      String :interface, limit: 128
+      Integer :penalty, limit: 11
+      Integer :paused, limit: 11
+      #Integer :device_id
+      #Integer :group_id
+
+      DateTime :created_at
+      DateTime :updated_at
     end
 
-    #add_index :queue_members, :uniqueid, unique: true
   end
 end

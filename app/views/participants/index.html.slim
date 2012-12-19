@@ -1,6 +1,6 @@
 h2 Listing '#{@group.name}' queue members
 
-- @participants.each do |member|
+- @group_participants.each do |member|
   .member
     /h3 = link_to member.device.name, member.device
     h3 = link_to member.membername, [ @group, member ]

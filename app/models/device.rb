@@ -15,10 +15,6 @@ class Device < Sequel::Model
     validates_presence :context
     validates_unique :name#{ case_sensitive: false }
   end
-
-  def to_i
-    @id
-  end
 end
 
 #Device.inheritance_column = 'rails_type'

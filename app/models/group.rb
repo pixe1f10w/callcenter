@@ -17,8 +17,4 @@ class Group < Sequel::Model
     validates_presence :name
     validates_unique :name #{ case_sensitive: false }
   end
-
-  def to_i
-    @id
-  end
 end

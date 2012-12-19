@@ -22,10 +22,11 @@ class Call < Sequel::Model
     #validates_format :uniqueid, with: VALID_UNIQUEID_REGEX
     validates_format VALID_UNIQUEID_REGEX, :uniqueid
   end
-
+=begin
   def to_i
     @uniqueid
   end
+=end
 
   private
     def update_source

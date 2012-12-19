@@ -26,10 +26,6 @@ class Participant < Sequel::Model
   many_to_one :group
   many_to_one :device
 
-  def to_i
-    @id
-  end
-
   private
     def set_queue_name
       group = Group.find! self.group_id

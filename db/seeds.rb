@@ -5,8 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-devices = Device.create [ { name: '1015', type: 'friend', defaultuser: '1015', secret: '12345', host: 'dynamic', context: 'testing' },
-                          { name: '1020', type: 'friend', defaultuser: '1020', secret: '12345', host: 'dynamic', context: 'testing' } ]
+devices = [ Device.create( name: '1015', type: 'friend', defaultuser: '1015', secret: '12345', host: 'dynamic', context: 'testing' ),
+            Device.create( name: '1020', type: 'friend', defaultuser: '1020', secret: '12345', host: 'dynamic', context: 'testing' ) ]
 
 group = Group.create name: 'testing', musiconhold: 'default', strategy: 'random', timeout: 15, retry: 5
 

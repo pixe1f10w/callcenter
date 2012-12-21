@@ -37,7 +37,7 @@ class ParticipantsController < ApplicationController#InheritedResources::Base
 
   def new
     @group = Group.find! params[ :group_id ]
-    @devices = Device.all
+    @workplaces = Workplace.all
     @participant = Participant.new
     @participant.group = @group
   end

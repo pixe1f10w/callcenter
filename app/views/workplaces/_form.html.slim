@@ -1,9 +1,9 @@
-= form_for @device do |f|
-  - if @device.errors.any?
+= form_for @workplace do |f|
+  - if @workplace.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@device.errors.count, "error")} prohibited this device from being saved:"
+      h2 = "#{pluralize(@workplace.errors.count, "error")} prohibited this workplace from being saved:"
       ul
-        - @device.errors.full_messages.each do |message|
+        - @workplace.errors.full_messages.each do |message|
           li = message
 
   .field

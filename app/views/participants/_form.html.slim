@@ -10,9 +10,9 @@
     = f.label :member_name
     = f.text_field :membername
   .field
-    = f.label :available_devices
-    - devices = Device.all - @group.devices
-    - devices << @participant.device unless @participant.device.nil?
-    //= f.collection_select :device_id, Device.all - @group.devices << @participant.device, :id, :name
-    = f.collection_select :device_id, devices, :id, :name
+    = f.label :available_workplaces
+    - workplaces = Workplace.all - @group.workplaces
+    - workplaces << @participant.workplace unless @participant.workplace.nil?
+    //= f.collection_select :workplace_id, Workplace.all - @group.workplaces << @participant.workplace, :id, :name
+    = f.collection_select :workplace_id, workplaces, :id, :name
   .actions = f.submit 'Save'

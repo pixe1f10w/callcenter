@@ -1,8 +1,8 @@
 class GroupsController < InheritedResources::Base
   def show
     @group = Group.find! params[ :id ]
-#    members = @call_queue.devices
-    @attached_devices = @group.devices.map { |d| d.name }
+#    members = @call_queue.workplaces
+    @attached_workplaces = @group.workplaces.map { |d| d.name }
     show!
   end
 

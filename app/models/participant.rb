@@ -4,7 +4,7 @@ class Participant < Sequel::Model
   plugin :validation_helpers
   plugin :timestamps
 
-  set_allowed_columns :interface, :membername, :paused, :penalty, :queue_name, :device_id, :group_id
+  set_allowed_columns :interface, :membername, :paused, :penalty, :queue_name, :workplace_id, :group_id
   set_primary_key :uniqueid
 
   def before_create
@@ -16,15 +16,15 @@ class Participant < Sequel::Model
   def validate
     super
     validates_presence :membername
-    validates_presence :device_id
+    validates_presence :workplace_id
     validates_presence :group_id
-    validates_unique [ :device_id, :group_id ]
+    validates_unique [ :workplace_id, :group_id ]
     #validates :interface, presence: true, uniqueness: { case_sensitive: false }
     #validates :queue_name, presence: true
   end
 
   many_to_one :group
-  many_to_one :device
+  many_to_one :workplace
 
   private
     def set_queue_name
@@ -34,8 +34,8 @@ class Participant < Sequel::Model
     end
 
     def set_interface
-      device = Device.find! self.device_id
-      member_interface = device.nil? ? 0 : "SIP/#{device.name}"
+      workplace = Workplace.find! self.workplace_id
+      member_interface = workplace.nil? ? 0 : "SIP/#{workplace.name}"
       self.interface = member_interface
     end
 end

@@ -1,12 +1,12 @@
 Callcenter::Application.routes.draw do
   resources :calls#, constraints: { id: /[\.]+/ }
   #resources :calls, constraints: { id: /\d{10}\.\d{3}/ }
-  resources :devices
+  resources :workplaces
   resources :groups do
     resources :participants
   end
 
-  root to: 'devices#index'
+  root to: 'workplaces#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

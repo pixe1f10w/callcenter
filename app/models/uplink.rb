@@ -1,0 +1,1 @@
+class Uplink < Device; end

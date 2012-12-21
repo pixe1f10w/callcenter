@@ -5,7 +5,7 @@
 .mets
   .queue        = "Queue: #{@group.name}"
   .membername   = "Name: #{@participant.membername}"
-  .device       = "Device: #{@participant.device.name}"
+  .workplace    = "Workplace: #{@participant.workplace.name}"
 .clear
 
 = link_to 'Edit', [ :edit, @group, @participant ]

@@ -1,0 +1,7 @@
+h2 Listing workplaces
+
+- @workplaces.each do |workplace|
+  .project
+    h3 = link_to workplace.name, workplace
+
+= link_to 'Create', new_workplace_path

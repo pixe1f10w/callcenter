@@ -1,0 +1,15 @@
+p#notice = notice
+
+.title
+  h2 = @workplace.name
+.mets
+  .type         = @workplace.type
+  .defaultuser  = @workplace.defaultuser
+  .host         = @workplace.host
+  .context      = @workplace.context
+.clear
+
+= link_to 'Edit', edit_workplace_path(@workplace)
+'|
+= link_to 'Destroy', @workplace, :confirm => 'Are you sure?', :method => :delete
+

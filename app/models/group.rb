@@ -9,8 +9,8 @@ class Group < Sequel::Model
   #has_many :participants, dependent: :destroy
   #has_many :devices, through: :participants
   one_to_many :participants
-  many_to_many :devices, join_table: :participants
-  add_association_dependencies devices: :nullify#, participants: :destroy
+  many_to_many :workplaces, join_table: :participants
+  add_association_dependencies workplaces: :nullify#, participants: :destroy
 
   def validate
     super

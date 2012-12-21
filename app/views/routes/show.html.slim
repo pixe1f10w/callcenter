@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Number:
+  = @route.number
+p
+  strong Descr:
+  = @route.descr
+p
+  strong Gateway:
+  = @route.gateway_id
+
+= link_to 'Edit', edit_route_path(@route)
+'|
+= link_to 'Back', routes_path

@@ -120,6 +120,16 @@ Sequel.migration do
       index [:group_id], :name=>:group_id
     end
     
+    create_table(:routes) do
+      primary_key :id, :type=>"int(11)"
+      column :number, "varchar(255)", :null=>false
+      column :descr, "varchar(255)"
+      column :gateway_id, "int(11)", :null=>false
+      column :kind, "int(11)", :null=>false
+      column :created_at, "datetime"
+      column :updated_at, "datetime"
+    end
+    
     create_table(:schema_migrations) do
       column :filename, "varchar(255)", :null=>false
       

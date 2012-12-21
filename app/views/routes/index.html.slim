@@ -1,0 +1,23 @@
+h1 Listing routes
+
+table
+  tr
+    th Number
+    th Descr
+    th Gateway
+    th
+    th
+    th
+
+  - @routes.each do |route|
+    tr
+      td = route.number
+      td = route.descr
+      td = route.gateway_id
+      td = link_to 'Show', route
+      td = link_to 'Edit', edit_route_path(route)
+      td = link_to 'Destroy', route, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Route', new_route_path

@@ -1,8 +1,12 @@
 Callcenter::Application.routes.draw do
+  resources :routes
+
+
   resources :calls#, constraints: { id: /[\.]+/ }
   #resources :calls, constraints: { id: /\d{10}\.\d{3}/ }
   resources :workplaces
   resources :gateways
+  resources :routes
   resources :groups do
     resources :participants
   end

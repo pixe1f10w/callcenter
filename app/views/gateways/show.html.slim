@@ -1,0 +1,15 @@
+p#notice = notice
+
+.title
+  h2 = @gateway.name
+.mets
+  .type         = @gateway.type
+  .defaultuser  = @gateway.defaultuser
+  .host         = @gateway.host
+  .context      = @gateway.context
+.clear
+
+= link_to 'Edit', edit_gateway_path(@gateway)
+'|
+= link_to 'Destroy', @gateway, :confirm => 'Are you sure?', :method => :delete
+

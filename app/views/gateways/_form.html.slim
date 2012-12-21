@@ -1,0 +1,27 @@
+= form_for @gateway do |f|
+  - if @gateway.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@gateway.errors.count, "error")} prohibited this gateway from being saved:"
+      ul
+        - @gateway.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :type
+    = f.text_field :type
+  .field
+    = f.label :defaultuser
+    = f.text_field :defaultuser
+  .field
+    = f.label :secret
+    = f.text_field :secret
+  .field
+    = f.label :host
+    = f.text_field :host
+  .field
+    = f.label :context
+    = f.text_field :context
+  .actions = f.submit 'Save'

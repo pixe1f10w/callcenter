@@ -1,0 +1,7 @@
+h2 Listing gateways
+
+- @gateways.each do |gateway|
+  .project
+    h3 = link_to gateway.name, gateway
+
+= link_to 'Create', new_gateway_path

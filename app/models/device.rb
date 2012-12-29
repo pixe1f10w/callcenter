@@ -8,7 +8,6 @@ class Device < Sequel::Model
 
   def validate
     super
-
     validates_presence :name
     validates_presence :context
     validates_unique :name#{ case_sensitive: false }

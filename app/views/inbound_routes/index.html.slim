@@ -1,0 +1,23 @@
+h1 Listing inbound routes
+
+table
+  tr
+    th SIP URI
+    th Descr
+    th Gateway
+    th
+    th
+    th
+
+  - @gateway_inbound_routes.each do |inbound_route|
+    tr
+      td = inbound_route.sip_uri
+      td = inbound_route.descr
+      td = inbound_route.gateway_id
+      td = link_to 'Show', [ @gateway, inbound_route ]
+      td = link_to 'Edit', [ :edit, @gateway, inbound_route ]
+      td = link_to 'Destroy', [ @gateway, inbound_route ], :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New inbound route', new_gateway_inbound_route_path

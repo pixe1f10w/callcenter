@@ -1,0 +1,15 @@
+= form_for [ @gateway, @inbound_route ] do |f|
+  - if @inbound_route.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@inbound_route.errors.count, "error")} prohibited this inbound route from being saved:"
+      ul
+        - @inbound_route.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :sip_uri
+    = f.text_field :sip_uri
+  .field
+    = f.label :descr
+    = f.text_field :descr
+  .actions = f.submit 'Save'

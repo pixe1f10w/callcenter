@@ -1,7 +1,8 @@
 Sequel.migration do
   change do
 
-    create_table :groups do #, force: true do |t|
+    #create_table :groups do #, force: true do |t|
+    create_table :groups, engine: 'InnoDB' do
       primary_key :id, limit: 10
 
       String :name, limit: 128

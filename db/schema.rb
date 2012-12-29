@@ -64,7 +64,7 @@ Sequel.migration do
       column :auth, "varchar(255)"
       column :created_at, "datetime"
       column :updated_at, "datetime"
-      column :kind, "int(11)"
+      column :kind, "int(11)", :null=>false
     end
     
     create_table(:groups) do
@@ -104,10 +104,16 @@ Sequel.migration do
       column :updated_at, "datetime"
     end
     
+    create_table(:schema_migrations) do
+      column :filename, "varchar(255)", :null=>false
+      
+      primary_key [:filename]
+    end
+    
     create_table(:participants) do
       primary_key :uniqueid, :type=>"int(11)"
-      column :workplace_id, "int(11)"
-      column :group_id, "int(11)"
+      foreign_key :workplace_id, :devices, :type=>"int(11)", :key=>[:id]
+      foreign_key :group_id, :groups, :type=>"int(11)", :key=>[:id]
       column :membername, "varchar(255)"
       column :queue_name, "varchar(255)"
       column :interface, "varchar(255)"
@@ -116,24 +122,20 @@ Sequel.migration do
       column :created_at, "datetime"
       column :updated_at, "datetime"
       
-      index [:workplace_id], :name=>:device_id
       index [:group_id], :name=>:group_id
+      index [:workplace_id], :name=>:workplace_id
     end
     
     create_table(:routes) do
       primary_key :id, :type=>"int(11)"
-      column :number, "varchar(255)", :null=>false
+      foreign_key :gateway_id, :devices, :type=>"int(11)", :key=>[:id]
+      column :sip_uri, "varchar(255)", :null=>false
       column :descr, "varchar(255)"
-      column :gateway_id, "int(11)", :null=>false
       column :kind, "int(11)", :null=>false
       column :created_at, "datetime"
       column :updated_at, "datetime"
-    end
-    
-    create_table(:schema_migrations) do
-      column :filename, "varchar(255)", :null=>false
       
-      primary_key [:filename]
+      index [:gateway_id], :name=>:gateway_id
     end
   end
 end

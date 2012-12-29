@@ -1,7 +1,8 @@
 Sequel.migration do
   up do
 
-    create_table :calls do
+    #create_table :calls do
+    create_table :calls, engine: 'InnoDB'  do
       #t.column :uniqueid, 'varchar(36) primary key not null'
       String :uniqueid, primary_key: true, null: false
 

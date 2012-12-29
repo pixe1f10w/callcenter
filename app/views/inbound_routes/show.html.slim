@@ -1,0 +1,14 @@
+p#notice = notice
+
+p
+  strong sip_uri:
+  = @inbound_route.sip_uri
+p
+  strong Descr:
+  = @inbound_route.descr
+
+= link_to 'Edit', [ :edit, @gateway, @inbound_route ]
+'|
+= link_to 'Remove', [ @gateway, @inbound_route ], :confirm => 'Are you sure?', :method => :delete
+'|
+= link_to 'Back', gateway_inbound_routes_path

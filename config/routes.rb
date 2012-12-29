@@ -1,12 +1,20 @@
 Callcenter::Application.routes.draw do
-  resources :routes
-
-
   resources :calls#, constraints: { id: /[\.]+/ }
   #resources :calls, constraints: { id: /\d{10}\.\d{3}/ }
   resources :workplaces
-  resources :gateways
-  resources :routes
+
+  resources :gateways do
+    resources :inbound_routes
+    resources :outbound_routes
+    #resource :outbound_route
+  end
+=begin
+  Route.descendants.each do |klass|
+    k = klass.model_name.pluralize.underscore.to_sym
+    resources k, controller: 'routes', route: { kind: klass.model_name }
+  end
+=end
+
   resources :groups do
     resources :participants
   end

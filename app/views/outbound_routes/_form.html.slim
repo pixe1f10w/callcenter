@@ -1,0 +1,15 @@
+= form_for [ @gateway, @outbound_route ] do |f|
+  - if @outbound_route.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@outbound_route.errors.count, "error")} prohibited this outbound route from being saved:"
+      ul
+        - @outbound_route.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :sip_uri
+    = f.text_field :sip_uri
+  .field
+    = f.label :descr
+    = f.text_field :descr
+  .actions = f.submit 'Save'

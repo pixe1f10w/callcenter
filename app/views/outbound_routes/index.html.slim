@@ -1,0 +1,23 @@
+h1 Listing outbound routes
+
+table
+  tr
+    th SIP URI
+    th Descr
+    th Gateway
+    th
+    th
+    th
+
+  - @gateway_outbound_routes.each do |outbound_route|
+    tr
+      td = outbound_route.sip_uri
+      td = outbound_route.descr
+      td = outbound_route.gateway_id
+      td = link_to 'Show', [ @gateway, outbound_route ]
+      td = link_to 'Edit', [ :edit, @gateway, outbound_route ]
+      td = link_to 'Destroy', [ @gateway, outbound_route ], :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New outbound route', new_gateway_outbound_route_path

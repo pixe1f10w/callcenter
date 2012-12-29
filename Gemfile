@@ -56,6 +56,7 @@ end
 
 group :development do
   gem 'annotate', '~> 2.4.1.beta'
+  gem 'zeus'
   gem 'nifty-generators'
   gem 'rails_refactor', :require => false
 end

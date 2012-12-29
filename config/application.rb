@@ -13,6 +13,14 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+=begin
+if defined?( Sequel ) && defined?( Sequel::MySQL )
+  Sequel::MySQL.default_engine = 'InnoDB'
+  Sequel::MySQL.default_charset = 'utf8'
+  Sequel::MySQL.default_collate = 'utf8'
+end
+=end
+
 module Callcenter
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

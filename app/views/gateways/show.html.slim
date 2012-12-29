@@ -7,9 +7,15 @@ p#notice = notice
   .defaultuser  = @gateway.defaultuser
   .host         = @gateway.host
   .context      = @gateway.context
+  .inbound
+    = link_to "Inbound routes:",  gateway_inbound_routes_path( @gateway )
+    = " #{@inbound_routes.join( ', ' )}"
+  .outbound
+    = link_to "Outbound routes:",  gateway_outbound_routes_path( @gateway )
+    = " #{@outbound_routes.join( ', ' )}"
 .clear
 
-= link_to 'Edit', edit_gateway_path(@gateway)
+= link_to 'Edit', edit_gateway_path( @gateway )
 '|
 = link_to 'Destroy', @gateway, :confirm => 'Are you sure?', :method => :delete
 

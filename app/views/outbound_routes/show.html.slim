@@ -7,8 +7,8 @@ p
   strong Descr:
   = @outbound_route.descr
 
-= link_to 'Edit', [ :edit, @gateway, @outbound_route ]
+= link_to 'Edit', edit_gateway_outbound_route_path
 '|
-= link_to 'Remove', [ @gateway, @outbound_route ], :confirm => 'Are you sure?', :method => :delete
+= link_to 'Remove', gateway_outbound_route_path, :confirm => 'Are you sure?', :method => :delete
 '|
-= link_to 'Back', gateway_outbound_routes_path
+= link_to 'Back', gateway_path( @gateway )

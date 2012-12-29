@@ -2,7 +2,8 @@ class GatewaysController < InheritedResources::Base
   def show
     @gateway = Gateway.find params[ :id ]
     @inbound_routes = @gateway.inbound_routes.map { |r| r.sip_uri }
-    @outbound_routes = @gateway.outbound_routes.map { |r| r.sip_uri }
+    #@outbound_route = @gateway.outbound_route.map { |r| r.sip_uri }
+    #@outbound_routes = @gateway.outbound_routes.map { |r| r.sip_uri }
     show!
   end
 

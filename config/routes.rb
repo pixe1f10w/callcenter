@@ -5,8 +5,8 @@ Callcenter::Application.routes.draw do
 
   resources :gateways do
     resources :inbound_routes
-    resources :outbound_routes
-    #resource :outbound_route
+    #resources :outbound_routes
+    resource :outbound_route
   end
 =begin
   Route.descendants.each do |klass|

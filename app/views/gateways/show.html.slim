@@ -11,8 +11,10 @@ p#notice = notice
     = link_to "Inbound routes:",  gateway_inbound_routes_path( @gateway )
     = " #{@inbound_routes.join( ', ' )}"
   .outbound
-    = link_to "Outbound routes:",  gateway_outbound_routes_path( @gateway )
-    = " #{@outbound_routes.join( ', ' )}"
+    - unless @gateway.outbound_route.nil?
+      = link_to "Outbound route", gateway_outbound_route_path( @gateway )
+    -else
+      = link_to "Create outbound route", new_gateway_outbound_route_path( @gateway )
 .clear
 
 = link_to 'Edit', edit_gateway_path( @gateway )

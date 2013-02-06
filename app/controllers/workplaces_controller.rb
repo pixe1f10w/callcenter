@@ -1,6 +1,6 @@
 class WorkplacesController < InheritedResources::Base
   def show
-    @workplace = Workplace.find params[ :id ]
+    @workplace = Workplace.find! params[ :id ]
     show!
   end
 
@@ -11,6 +11,11 @@ class WorkplacesController < InheritedResources::Base
 
   def index
     @workplaces = Workplace.all
+  end
+
+  def edit
+    @workplace = Workplace.find! params[ :id ]
+    edit!
   end
 
   def update

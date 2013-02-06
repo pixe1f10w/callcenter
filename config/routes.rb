@@ -1,7 +1,5 @@
 Callcenter::Application.routes.draw do
-  resources :calls#, constraints: { id: /[\.]+/ }
-  #resources :calls, constraints: { id: /\d{10}\.\d{3}/ }
-  resources :workplaces
+  resources :calls, :only => [ :index, :show ]#, constraints: { id: /[\.]+/ }
 
   resources :gateways do
     resources :inbound_routes
@@ -15,11 +13,22 @@ Callcenter::Application.routes.draw do
   end
 =end
 
-  resources :groups do
-    resources :participants
+  resources :workplaces do
+    resources :routes, controller: 'workplace_associations'
   end
 
-  root to: 'workplaces#index'
+  resources :groups do
+    resources :participants
+    resources :inbound_routes, controller: 'group_associations'
+    resource :outbound_route, controller: 'group_associations'
+  end
+
+  resources :ivrs do
+    resources :inbound_routes, controller: 'ivr_associations'
+    resource :outbound_route, controller: 'ivr_associations'
+  end
+
+  root to: 'calls#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

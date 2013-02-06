@@ -6,6 +6,9 @@ class Route < Sequel::Model
 
   set_allowed_columns :sip_uri, :descr, :gateway_id
   many_to_one :gateway
+  #TODO: better to do that as hooks in inbound and outbound separately
+  many_to_many :groups, join_table: :associations
+  many_to_many :workplaces, join_table: :associations
 
   def before_create
     super

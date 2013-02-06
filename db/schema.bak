@@ -136,12 +136,11 @@ Sequel.migration do
       column :updated_at, "datetime"
       
       index [:gateway_id], :name=>:gateway_id
-      index [:sip_uri, :kind], :name=>:sip_uri, :unique=>true
     end
     
-    create_table(:associations) do
+    create_table(:bindings) do
       primary_key :id, :type=>"int(11)"
-      foreign_key :route_id, :routes, :type=>"int(11)", :null=>false, :key=>[:id]
+      foreign_key :route_id, :routes, :type=>"int(11)", :key=>[:id]
       column :kind, "int(11)", :null=>false
       foreign_key :workplace_id, :devices, :type=>"int(11)", :key=>[:id]
       foreign_key :group_id, :groups, :type=>"int(11)", :key=>[:id]

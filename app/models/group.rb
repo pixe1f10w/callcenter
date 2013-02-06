@@ -9,8 +9,9 @@ class Group < Sequel::Model
   one_to_many :participants
   many_to_many :workplaces, join_table: :participants
   add_association_dependencies workplaces: :nullify#, participants: :destroy
-  one_to_many :inbound_routes
-  one_to_one :outbound_route
+  many_to_many :routes, join_table: :associations
+  one_to_many :group_associations, key: :group_id
+  #TODO: dependencies
 
   def validate
     super

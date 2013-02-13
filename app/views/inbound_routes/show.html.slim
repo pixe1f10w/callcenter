@@ -1,11 +1,9 @@
-p#notice = notice
-
 p
   strong sip_uri:
   = @inbound_route.sip_uri
 p
-  strong Descr:
-  = @inbound_route.descr
+  strong Description:
+  = @inbound_route.description
 
 = link_to 'Edit', [ :edit, @gateway, @inbound_route ]
 '|

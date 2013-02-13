@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong sip_uri:
+  = @group_association.associated_route.sip_uri
+p
+  strong description:
+  = @group_association.associated_route.description
+
+//- if params[ :kind_of_route ] == :inbound
+- case params[ :kind_of_route ]
+- when :inbound then
+  = link_to 'Edit', edit_group_inbound_route_path( @group, @group_association )
+  '|
+  = link_to 'Remove', group_inbound_route_path( @group, @group_association ), confirm: 'Are you sure?', method: :delete
+  '|
+  = link_to 'Back', group_inbound_routes_path
+//- else
+- when :outbound then
+  = link_to 'Edit', edit_group_outbound_route_path( @group )
+  '|
+  = link_to 'Remove', group_outbound_route_path( @group ), confirm: 'Are you sure?', method: :delete
+  '|
+  = link_to 'Back', group_path( @group )

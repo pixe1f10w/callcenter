@@ -1,5 +1,3 @@
-p#notice = notice
-
 .title
   h2 = @group.name
 .mets
@@ -10,6 +8,15 @@ p#notice = notice
   .members
     = link_to "Participants:",  group_participants_path( @group )
     = " #{@attached_workplaces.join( ', ' )}"
+  .inbound_routes
+    = link_to "Inbound routes:", group_inbound_routes_path( @group )
+  .outbound_route
+    - unless @group.outbound_association.nil?
+      = link_to "Outbound route", group_outbound_route_path( @group )
+    - else
+      = link_to "Assign outbound route", new_group_outbound_route_path( @group )
+//      = link_to "Inbound routes:", group_group_associations_path( @group )
+//    = " #{@group.inbound_associations} "
 .clear
 
 = link_to 'Edit', edit_group_path(@group)

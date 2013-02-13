@@ -1,11 +1,9 @@
-p#notice = notice
-
 p
   strong sip_uri:
   = @outbound_route.sip_uri
 p
-  strong Descr:
-  = @outbound_route.descr
+  strong description:
+  = @outbound_route.description
 
 = link_to 'Edit', edit_gateway_outbound_route_path
 '|

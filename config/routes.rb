@@ -22,8 +22,10 @@ Callcenter::Application.routes.draw do
 
   resources :groups do
     resources :participants
-    resources :inbound_routes, controller: 'group_associations', kind_of_route: :inbound
-    resource :outbound_route, controller: 'group_associations', kind_of_route: :outbound
+    resources :inbound_routes,# as: 'group_associations',
+      controller: 'group_associations', kind_of_route: :inbound
+    resource :outbound_route, #as: 'group_association',
+      controller: 'group_associations', kind_of_route: :outbound
   end
 
   resources :ivrs do

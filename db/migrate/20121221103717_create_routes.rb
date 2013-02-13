@@ -8,7 +8,7 @@ Sequel.migration do
       foreign_key :gateway_id, :devices
       #Integer :gateway_id, null: false
       String :sip_uri, null: false
-      String :descr
+      String :description
       Integer :kind, null: false
       DateTime :created_at
       DateTime :updated_at

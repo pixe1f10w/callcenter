@@ -3,7 +3,7 @@ h1 Listing outbound routes
 table
   tr
     th SIP URI
-    th Descr
+    th description
     th Gateway
     th
     th
@@ -12,7 +12,7 @@ table
   - @gateway_outbound_routes.each do |outbound_route|
     tr
       td = outbound_route.sip_uri
-      td = outbound_route.descr
+      td = outbound_route.description
       td = outbound_route.gateway_id
       td = link_to 'Show', [ @gateway, outbound_route ]
       td = link_to 'Edit', [ :edit, @gateway, outbound_route ]

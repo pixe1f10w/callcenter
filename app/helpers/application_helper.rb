@@ -5,8 +5,4 @@ module ApplicationHelper
     title << " | #{page_title}" unless page_title.empty?
     title
   end
-
-  def gateway_outbound_routes_path *args
-    gateway_outbound_route_path *args
-  end
 end

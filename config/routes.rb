@@ -1,12 +1,11 @@
 Callcenter::Application.routes.draw do
   root to: 'calls#index'
 
-  resources :calls, :only => [ :index, :show ]#, constraints: { id: /[\.]+/ }
+  resources :calls, only: [ :index, :show ]#, constraints: { id: /[\.]+/ }
 
   resources :gateways do
     resources :inbound_routes
-    #resources :outbound_routes
-    resource :outbound_route
+    resources :outbound_routes
   end
 =begin
   Route.descendants.each do |klass|

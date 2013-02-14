@@ -1,4 +1,4 @@
-= form_for [ @gateway, @outbound_route ] do |f|
+= form_for [ @gateway, @outbound_route ] do |f|#, url: new_gateway_outbound_route_path do |f|
   - if @outbound_route.errors.any?
     #error_explanation
       h2 = "#{pluralize(@outbound_route.errors.count, "error")} prohibited this outbound route from being saved:"

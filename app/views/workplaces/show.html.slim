@@ -6,6 +6,13 @@
   .host         = @workplace.host
   .context      = @workplace.context
   .reachable    = @workplace.intercom_reachable
+  .inbound_routes
+    = link_to "Inbound routes:", workplace_inbound_routes_path( @workplace )
+  .outbound_route
+    - unless @workplace.outbound_association.nil?
+      = link_to "Outbound route", workplace_outbound_route_path( @workplace )
+    - else
+      = link_to "Assign outbound route", new_workplace_outbound_route_path( @workplace )
 .clear
 
 = link_to 'Edit', edit_workplace_path(@workplace)

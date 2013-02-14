@@ -15,8 +15,10 @@ Callcenter::Application.routes.draw do
 =end
 
   resources :workplaces do
-    resources :inbound_routes, controller: 'workplace_associations', kind_of_route: :inbound
-    resources :outbound_routes, controller: 'workplace_associations', kind_of_route: :outbound
+    resources :inbound_routes,
+      controller: 'workplace_associations', kind_of_route: :inbound
+    resource :outbound_route,
+      controller: 'workplace_associations', kind_of_route: :outbound
   end
 
   resources :groups do

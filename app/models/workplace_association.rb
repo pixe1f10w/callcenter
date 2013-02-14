@@ -1,6 +1,6 @@
 class WorkplaceAssociation < Association
-  #one_to_one :workplace, key: :id
   many_to_one :workplace
+  set_allowed_columns :worlplace_id, :description, :route_id
 
   def validate
     super

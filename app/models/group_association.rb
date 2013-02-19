@@ -1,6 +1,6 @@
 class GroupAssociation < Association
   many_to_one :group
-  set_allowed_columns :group_id, :description, :route_id
+  set_allowed_columns :group_id, :description, :route_id, :recorded
 
   def validate
     super

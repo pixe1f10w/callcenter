@@ -19,6 +19,9 @@ h1 New route
   .field
     = f.label :available_routes
     = f.collection_select :route_id, @available_routes, :id, :sip_uri
+  .field
+    = f.label :recorded
+    = f.check_box :recorded
   .actions = f.submit 'Save'
 
 - if params[ :kind_of_route ] == :inbound

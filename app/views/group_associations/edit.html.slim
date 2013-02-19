@@ -16,6 +16,9 @@ h1 Editing route
   .field
     = f.label :description
     = f.text_field :description
+  .field
+    = f.label :recorded
+    = f.check_box :recorded
   .actions = f.submit 'Save'
 
 - if params[ :kind_of_route ] == :inbound

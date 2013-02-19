@@ -158,6 +158,7 @@ Sequel.migration do
       foreign_key :workplace_id, :devices, :type=>"int(11)", :key=>[:id]
       foreign_key :group_id, :groups, :type=>"int(11)", :key=>[:id]
       foreign_key :ivr_id, :ivrs, :type=>"int(11)", :key=>[:id]
+      column :recorded, "tinyint(1)", :default=>false, :null=>false
       
       index [:group_id], :name=>:group_id
       index [:ivr_id], :name=>:ivr_id

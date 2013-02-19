@@ -30,8 +30,10 @@ Callcenter::Application.routes.draw do
   end
 
   resources :ivrs do
-    resources :inbound_routes, controller: 'ivr_associations', kind_of_route: :inbound
-    resource :outbound_route, controller: 'ivr_associations', kind_of_route: :outbound
+    resources :inbound_routes,
+      controller: 'ivr_associations', kind_of_route: :inbound
+    resource :outbound_route,
+      controller: 'ivr_associations', kind_of_route: :outbound
   end
 
   #match 'test' => "groups#show", :id => 2

@@ -1,0 +1,17 @@
+.title
+  h2 = @ivr.name
+.mets
+  .code         = @ivr.code
+  .inbound_routes
+    = link_to "Inbound routes:", ivr_inbound_routes_path( @ivr )
+  .outbound_route
+    - unless @ivr.outbound_association.nil?
+      = link_to "Outbound route", ivr_outbound_route_path( @ivr )
+    - else
+      = link_to "Assign outbound route", new_ivr_outbound_route_path( @ivr )
+.clear
+
+= link_to 'Edit', edit_ivr_path(@ivr)
+'|
+= link_to 'Destroy', @ivr, :confirm => 'Are you sure?', :method => :delete
+

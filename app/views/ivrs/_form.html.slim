@@ -1,0 +1,15 @@
+= form_for @ivr do |f|
+  - if @ivr.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@ivr.errors.count, "error")} prohibited this ivr from being saved:"
+      ul
+        - @ivr.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :code
+    = f.text_area :code
+  .actions = f.submit 'Save'

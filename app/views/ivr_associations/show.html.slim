@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong sip_uri:
+  = @ivr_association.associated_route.sip_uri
+p
+  strong description:
+  = @ivr_association.associated_route.description
+
+//- if params[ :kind_of_route ] == :inbound
+- case params[ :kind_of_route ]
+- when :inbound then
+  = link_to 'Edit', edit_ivr_inbound_route_path( @ivr, @ivr_association )
+  '|
+  = link_to 'Remove', ivr_inbound_route_path( @ivr, @ivr_association ), confirm: 'Are you sure?', method: :delete
+  '|
+  = link_to 'Back', ivr_inbound_routes_path
+//- else
+- when :outbound then
+  = link_to 'Edit', edit_ivr_outbound_route_path( @ivr )
+  '|
+  = link_to 'Remove', ivr_outbound_route_path( @ivr ), confirm: 'Are you sure?', method: :delete
+  '|
+  = link_to 'Back', ivr_path( @ivr )

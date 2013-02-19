@@ -1,0 +1,23 @@
+h1 Listing inbound routes
+
+table
+  tr
+    th SIP URI
+    th description
+    th Gateway
+    th
+    th
+    th
+
+  - @ivr_associations.each do |association|
+    tr
+      td = association.associated_route.sip_uri
+      td = association.associated_route.description
+      td = association.associated_route.gateway_id
+      td = link_to 'Show', ivr_inbound_route_path( @ivr, association )
+      td = link_to 'Edit', edit_ivr_inbound_route_path( @ivr, association )
+      td = link_to 'Destroy', ivr_inbound_route_path( @ivr, association ), confirm: 'Are you sure?', method: :delete
+
+br
+
+= link_to 'New inbound route', new_ivr_inbound_route_path

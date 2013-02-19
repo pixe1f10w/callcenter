@@ -1,0 +1,7 @@
+h2 Listing ivrs
+
+- @ivrs.each do |ivr|
+  .project
+    h3 = link_to ivr.name, ivr
+
+= link_to 'Create', new_ivr_path

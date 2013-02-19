@@ -7,7 +7,7 @@ Sequel.migration do
       String :description
       foreign_key :workplace_id, :devices
       foreign_key :group_id, :groups
-      #foreign_key :ivr_id, :ivrs
+      foreign_key :ivr_id, :ivrs
     end
   end
 end

@@ -1,0 +1,28 @@
+h1 Editing route
+- if params[ :kind_of_route ] == :inbound
+  - path = ivr_inbound_route_path
+- else
+  - path = ivr_outbound_route_path
+
+//= form_for [ @ivr, @ivr_association ], url: ivr_inbound_route_path do |f|
+= form_for [ @ivr, @ivr_association ], url: path do |f|
+  - if @ivr_association.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@ivr_association.errors.count, "error")} prohibited this inbound route from being saved:"
+      ul
+        - @ivr_association.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :description
+    = f.text_field :description
+  .actions = f.submit 'Save'
+
+- if params[ :kind_of_route ] == :inbound
+  = link_to 'Show', ivr_inbound_route_path( @ivr, @ivr_association )
+  '|
+  = link_to 'Back', ivr_inbound_routes_path
+- else
+  = link_to 'Show', ivr_outbound_route_path( @ivr )
+  '|
+  = link_to 'Back', ivr_path( @ivr )

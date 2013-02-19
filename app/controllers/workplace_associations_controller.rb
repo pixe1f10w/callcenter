@@ -60,7 +60,12 @@ class WorkplaceAssociationsController < ApplicationController
         flash[ :error ] = "No more unattached routes available for this workplace"
         redirect_to workplace_inbound_routes_url @workplace
       when :outbound then
-        flash[ :error ] = "Workplace already has outbound route attached"
+        if not @workplace.outbound_association.present?
+          flash[ :error ] = "No routes are available to attach"
+        else
+          flash[ :error ] = "Workplace already has outbound route attached"
+        end
+
         redirect_to workplace_path( @workplace )
       end
     else

@@ -59,7 +59,12 @@ class GroupAssociationsController < ApplicationController
         flash[ :error ] = "No more unattached routes available for this group"
         redirect_to group_inbound_routes_url @group
       when :outbound then
-        flash[ :error ] = "Group already has outbound route attached"
+        if not @group.outbound_association.present?
+          flash[ :error ] = "No routes are available to attach"
+        else
+          flash[ :error ] = "Group already has outbound route attached"
+        end
+
         redirect_to group_path( @group )
       end
     else

@@ -60,7 +60,12 @@ class IvrAssociationsController < ApplicationController
         flash[ :error ] = "No more unattached routes available for this ivr"
         redirect_to ivr_inbound_routes_url @ivr
       when :outbound then
-        flash[ :error ] = "ivr already has outbound route attached"
+        if not @ivr.outbound_association.present?
+          flash[ :error ] = "No routes are available to attach"
+        else
+          flash[ :error ] = "IVR already has outbound route attached"
+        end
+
         redirect_to ivr_path( @ivr )
       end
     else

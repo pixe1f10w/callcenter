@@ -3,9 +3,9 @@ class Association < Sequel::Model
   plugin :nested_attributes
   plugin :timestamps
   plugin :single_table_inheritance, :kind,
-        model_map: { 1 => :WorkplaceAssociation,
-                     2 => :GroupAssociation,
-                     3 => :IvrAssociation }
+        model_map: { 'workplace' => :WorkplaceAssociation,
+                     'group' => :GroupAssociation,
+                     'ivr' => :IvrAssociation }
 
   #set_allowed_columns :descr, :route_id
 

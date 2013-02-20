@@ -3,7 +3,7 @@ class Route < Sequel::Model
   plugin :association_dependencies
   plugin :timestamps
   plugin :single_table_inheritance, :kind,
-        model_map: { 1 => :InboundRoute, 2 => :OutboundRoute }
+        model_map: { 'inbound' => :InboundRoute, 'outbound' => :OutboundRoute }
 
   set_allowed_columns :sip_uri, :description, :gateway_id
   many_to_one :gateway

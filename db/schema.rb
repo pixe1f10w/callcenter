@@ -64,8 +64,10 @@ Sequel.migration do
       column :auth, "varchar(255)"
       column :created_at, "datetime"
       column :updated_at, "datetime"
-      column :kind, "int(11)", :null=>false
+      column :kind, "varchar(255)", :null=>false
       column :intercom_reachable, "tinyint(1)", :default=>false, :null=>false
+      
+      index [:kind]
     end
     
     create_table(:groups) do
@@ -142,24 +144,26 @@ Sequel.migration do
       foreign_key :gateway_id, :devices, :type=>"int(11)", :key=>[:id]
       column :sip_uri, "varchar(255)", :null=>false
       column :description, "varchar(255)"
-      column :kind, "int(11)", :null=>false
+      column :kind, "varchar(255)", :null=>false
       column :created_at, "datetime"
       column :updated_at, "datetime"
       
       index [:gateway_id], :name=>:gateway_id
+      index [:kind]
       index [:sip_uri, :kind], :name=>:sip_uri, :unique=>true
     end
     
     create_table(:associations) do
       primary_key :id, :type=>"int(11)"
       foreign_key :route_id, :routes, :type=>"int(11)", :null=>false, :key=>[:id]
-      column :kind, "int(11)", :null=>false
+      column :kind, "varchar(255)", :null=>false
       column :description, "varchar(255)"
       foreign_key :workplace_id, :devices, :type=>"int(11)", :key=>[:id]
       foreign_key :group_id, :groups, :type=>"int(11)", :key=>[:id]
       foreign_key :ivr_id, :ivrs, :type=>"int(11)", :key=>[:id]
       column :recorded, "tinyint(1)", :default=>false, :null=>false
       
+      index [:kind]
       index [:group_id], :name=>:group_id
       index [:ivr_id], :name=>:ivr_id
       index [:route_id], :name=>:route_id

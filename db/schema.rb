@@ -4,13 +4,14 @@ Sequel.migration do
       column :uniqueid, "varchar(255)", :null=>false
       column :from, "varchar(255)"
       column :to, "varchar(255)"
-      column :inbound, "tinyint(1)"
       column :created_at, "datetime"
       column :updated_at, "datetime"
       column :joined_at, "datetime"
       column :unjoined_at, "datetime"
       column :answered_at, "datetime"
       column :ended_at, "datetime"
+      column :kind, "varchar(255)"
+      column :recorded, "tinyint(1)", :default=>false
       
       primary_key [:uniqueid]
     end
@@ -66,6 +67,7 @@ Sequel.migration do
       column :updated_at, "datetime"
       column :kind, "varchar(255)", :null=>false
       column :intercom_reachable, "tinyint(1)", :default=>false, :null=>false
+      column :callbackextension, "varchar(40)"
       
       index [:kind]
     end
@@ -162,6 +164,7 @@ Sequel.migration do
       foreign_key :group_id, :groups, :type=>"int(11)", :key=>[:id]
       foreign_key :ivr_id, :ivrs, :type=>"int(11)", :key=>[:id]
       column :recorded, "tinyint(1)", :default=>false, :null=>false
+      column :active, "tinyint(1)", :default=>true
       
       index [:kind]
       index [:group_id], :name=>:group_id

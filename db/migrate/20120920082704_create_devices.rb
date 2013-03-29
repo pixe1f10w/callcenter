@@ -46,6 +46,7 @@ Sequel.migration do
       String :regexten, limit: 80
       String :cancallforward, limit: 3, default: 'yes'
       String :setvar, limit: 100
+      String :callbackextension, limit: 40 # Asterisk 11 additional field.
       # additiononal fields of IAX2
       String :dbsecret, limit: 100
       String :inkeys, limit: 100

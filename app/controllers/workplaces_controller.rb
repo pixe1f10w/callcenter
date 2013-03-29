@@ -28,4 +28,9 @@ class WorkplacesController < InheritedResources::Base
       render action: 'edit'
     end
   end
+
+  def destroy
+    @workplace = Workplace.find! params[ :id ]
+    destroy!
+  end
 end

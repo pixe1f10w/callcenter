@@ -12,7 +12,8 @@
     <th>Unjoined At</th>
     <th>From</th>
     <th>To</th>
-    <th>Inbound</th>
+    <th>Kind</th>
+    <th>Recorded</th>
     <th>Duration</th>
   </tr>
 
@@ -26,7 +27,8 @@
       <td><%= call.unjoined_at %></td>
       <td><%= call.from %></td>
       <td><%= call.to %></td>
-      <td><%= call.inbound %></td>
+      <td><%= call.kind %></td>
+      <td><%= call.recorded %></td>
       <td><%= Time.diff( call.ended_at, call.answered_at )[ :diff ] if !call.ended_at.nil? && !call.answered_at.nil? %></td>
       <td><%= link_to "Details", call %></td>
     </tr>

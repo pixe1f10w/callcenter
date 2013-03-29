@@ -4,35 +4,43 @@ Adhearsion::Events.draw do
 
   # Register global handlers for events
   #
-  # eg. Handling Punchblock events
-  #punchblock do |event|
 
+  # TODO sidekiq?
   punchblock  Punchblock::Event::Offer do |event|
-    logger.info "offered #{event.target_call_id}"
-    Call.create uniqueid: event.target_call_id.to_s, from: event.from, to: event.to
+    logger.info "call offered #{event.target_call_id}"
+    Call.create uniqueid: event.target_call_id.to_s,
+                from: event.from,
+                to: event.to#,
+                #kind: Adhearsion::active_calls[event.target_call_id].options[:kind]
   end
 
   punchblock  Punchblock::Event::Answered do |event|
-    logger.info "answered #{event.target_call_id}"
+    logger.info "call answered #{event.target_call_id}"
     unless Call.where( Call.primary_key_hash( event.target_call_id.to_s ) ).empty?
       call = Call.find! event.target_call_id.to_s
       call.answered_at = DateTime.current
+      #call.kind = Adhearsion::active_calls[event.target_call_id].options[:kind]
       call.save
     end
   end
 
   punchblock  Punchblock::Event::End do |event|
-    logger.info "ended #{event.target_call_id}"
+    logger.info "call ended #{event.target_call_id}"
     logger.info Adhearsion::active_calls[ event.target_call_id ].tags
     unless Call.where( Call.primary_key_hash( event.target_call_id.to_s ) ).empty?
       call = Call.find! event.target_call_id.to_s
       call.ended_at = DateTime.current
+=begin
+      if Adhearsion::active_calls[event.target_call_id].options[:record] == true
+        call.recorded = Adhearsion::active_calls[event.target_call_id].options[:recorded]
+      end
+=end
       call.save
     end
   end
 
   punchblock  Punchblock::Event::Joined do |event|
-    logger.info "joined #{event.target_call_id}"
+    logger.info "call joined #{event.target_call_id}"
     unless Call.where( Call.primary_key_hash( event.target_call_id.to_s ) ).empty?
       call = Call.find! event.target_call_id.to_s
       call.joined_at = DateTime.current
@@ -41,7 +49,7 @@ Adhearsion::Events.draw do
   end
 
   punchblock  Punchblock::Event::Unjoined do |event|
-    logger.info "unjoined #{event.target_call_id}"
+    logger.info "call unjoined #{event.target_call_id}"
     unless Call.where( Call.primary_key_hash( event.target_call_id.to_s ) ).empty?
       call = Call.find! event.target_call_id.to_s
       call.unjoined_at = DateTime.current

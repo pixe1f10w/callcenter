@@ -6,12 +6,13 @@
 #
 
 development:
-    adapter: jdbcmysql
+    adapter: jdbc
+    uri: jdbc:mysql://localhost/callcenter?user=callcenter&password=p4sSw0Rd
     encoding: utf8
-    database: callcenter
-    username: callcenter
-    password: p4sSw0Rd
-    host: localhost
+    #database: callcenter
+    #username: callcenter
+    #password: p4sSw0Rd
+    #host: localhost
     pool: 50
     timeout: 5000
 

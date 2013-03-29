@@ -2,6 +2,7 @@ class Ivr < Sequel::Model
   plugin :association_proxies
   plugin :association_dependencies
   plugin :validation_helpers
+  plugin :timestamps
 
   set_allowed_columns :name, :code
 

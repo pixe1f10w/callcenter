@@ -22,6 +22,9 @@ h1 New route
   .field
     = f.label :recorded
     = f.check_box :recorded
+  .field
+    = f.label :active
+    = f.check_box :active
   .actions = f.submit 'Save'
 
 - if params[ :kind_of_route ] == :inbound

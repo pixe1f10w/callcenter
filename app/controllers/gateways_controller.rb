@@ -31,4 +31,9 @@ class GatewaysController < InheritedResources::Base
       render action: 'edit'
     end
   end
+
+  def destroy
+    @gateway = Gateway.find! params[ :id ]
+    destroy!
+  end
 end

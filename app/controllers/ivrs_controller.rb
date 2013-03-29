@@ -28,4 +28,9 @@ class IvrsController < InheritedResources::Base
       render action: 'edit'
     end
   end
+
+  def destroy
+    @ivr = Ivr.find! params[ :id ]
+    destroy!
+  end
 end

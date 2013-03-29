@@ -2,16 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 
-# Adhearsion and it's dependencies
-#gem "adhearsion", "~> 2.1.3"
-#gem "punchblock", ">= 1.4.1"
-
-#gem 'adhearsion', git: 'https://github.com/adhearsion/adhearsion.git', branch: 'develop'
-#gem 'punchblock', git: 'https://github.com/adhearsion/punchblock.git', branch: 'develop'
-#gem 'celluloid', git: 'https://github.com/celluloid/celluloid.git', branch: 'master'
-
 gem "adhearsion", ">= 2.2.0"
-
 gem "adhearsion-asterisk"
 
 gem "slim-rails"
@@ -24,47 +15,57 @@ gem "bootstrap-will_paginate"
 #gem 'easy_roles'
 gem 'time_diff'
 
-#gem "activerecord-wrap-with-connection"
-
 gem 'sequel'
 gem 'talentbox-sequel-rails'
+
+=begin
+# suggestions for future milestones
+gem 'active-admin'
+  #gem 'meta_search', '>=1.1.0.pre'
+gem 'adhearsion-twilio'
+gem 'flatui-rails'
+gem 'devise'
+gem 'soundmanager-rails'
+=end
 
 platforms :ruby do
   gem 'mysql2'
   gem 'pg'
-  #gem 'therubyracer'
+  gem 'therubyracer'
 end
 
 platforms :jruby do
-  gem 'activerecord-jdbcmysql-adapter'
-  gem 'activerecord-jdbcpostgresql-adapter'
+  gem 'jdbc-mysql'
   gem 'ffi'
-  #gem 'therubyrhino'
+  gem 'jruby_sandbox'
+  gem 'therubyrhino'
 end
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'codemirror-rails'
+  gem 'jquery-rails'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
 
 group :development do
-  gem 'annotate', '~> 2.4.1.beta'
-  gem 'zeus'
+  gem 'annotate', '~> 2.4.1.beta' # seems to be incompatible with sequel
   gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'sextant'
+  gem 'quiet_assets'
   gem 'nifty-generators'
-  gem 'rails_refactor', :require => false
-end
+  gem 'rails_refactor', :require => false # seems to be broken
+  gem 'debugger'
 
-gem 'jquery-rails'
+  platforms :ruby do
+    gem 'zeus'
+    gem 'binding_of_caller'
+  end
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -74,11 +75,9 @@ gem 'jquery-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'
+gem 'thin'
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
 
 #gem "mocha", :group => :test, :require => false

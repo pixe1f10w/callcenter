@@ -2,6 +2,7 @@ class Device < Sequel::Model
   plugin :association_proxies
   plugin :association_dependencies
   plugin :validation_helpers
+  plugin :timestamps
   plugin :single_table_inheritance, :kind,
     model_map: { 'workplace' => :Workplace, 'gateway' => :Gateway }
 

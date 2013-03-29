@@ -5,6 +5,8 @@ class Workplace < Device
   add_association_dependencies participant: :destroy
 
   one_to_many :workplace_associations, key: :workplace_id
+  add_association_dependencies workplace_associations: :destroy
+
   many_to_many :routes, join_table: :associations
 
   def inbound_associations
